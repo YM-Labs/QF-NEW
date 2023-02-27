@@ -77,7 +77,7 @@
   "scripts": {
     "start:lambda": "netlify-lambda serve src/lambda",
     "build:lambda": "netlify-lambda build src/lambda",
-    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true CI=1 gatsby build",
+    "build": "NODE_OPTIONS=--max-old-space-size=24000 && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true CI=1 gatsby build",
     "build-serve": "yarn build && gatsby serve",
     "develop-watch": "npm run develop",
     "develop": "node --max-old-space-size=28192 ./node_modules/.bin/gatsby develop -H 0.0.0.0",
