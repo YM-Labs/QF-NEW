@@ -1,0 +1,43 @@
+Sitemap: https://www.qf.org.qa/sitemap.xml
+
+User-agent: *
+Disallow: /about/profile/her-excellency-sheikha-al-mayassa-bint-hamad-al-thani
+Disallow: /about/profile/his-excellency-sheikh-mohammed-bin-hamad-al-thani
+Disallow: /about/profile/his-excellency-sheikh-jassim-bin-abdulaziz-al-thani
+Disallow: /about/profile/engineer-saad-ebrahim-al-muhannadi
+Disallow: /about/profile/his-excellency-dr-mohammed-saleh-al-sada
+Disallow: /about/profile/his-excellency-dr-abdullah-bin-hussain-al-kubaisi
+Disallow: /about/profile/dr-mazen-jassim-jaidah
+Disallow: /about/profile/omran-hamad-al-kuwari
+Disallow: /about/profile/buthaina-al-nuami
+Disallow: /about/profile/dr-ahmad-hasnah
+Disallow: /about/profile/machaille-al-naimi
+Disallow: /about/profile/richard-o'kennedy
+Disallow: /about/profile/sheikh-salman-bin-hassan-al-thani
+Disallow: /about/profile/mayan-zebeib
+Disallow: /about/profile/eng-ghanim-hassan-al-ibrahim
+Disallow: /about/profile/michael-mitchell
+Disallow: /about/profile/mohammed-ali-kareeb
+Disallow: /about/profile/abeer-al-khalifa
+
+Disallow: /ar/about/profile/her-excellency-sheikha-al-mayassa-bint-hamad-al-thani
+Disallow: /ar/about/profile/his-excellency-sheikh-mohammed-bin-hamad-al-thani
+Disallow: /ar/about/profile/his-excellency-sheikh-jassim-bin-abdulaziz-al-thani
+Disallow: /ar/about/profile/engineer-saad-ebrahim-al-muhannadi
+Disallow: /ar/about/profile/his-excellency-dr-mohammed-saleh-al-sada
+Disallow: /ar/about/profile/his-excellency-dr-abdullah-bin-hussain-al-kubaisi
+Disallow: /ar/about/profile/dr-mazen-jassim-jaidah
+Disallow: /ar/about/profile/omran-hamad-al-kuwari
+Disallow: /ar/about/profile/buthaina-al-nuami
+Disallow: /ar/about/profile/dr-ahmad-hasnah
+Disallow: /ar/about/profile/machaille-al-naimi
+Disallow: /ar/about/profile/richard-o'kennedy
+Disallow: /ar/about/profile/sheikh-salman-bin-hassan-al-thani
+Disallow: /ar/about/profile/mayan-zebeib
+Disallow: /ar/about/profile/eng-ghanim-hassan-al-ibrahim
+Disallow: /ar/about/profile/michael-mitchell
+Disallow: /ar/about/profile/mohammed-ali-kareeb
+Disallow: /ar/about/profile/abeer-al-khalifa
+
+Disallow: /submit-event
+Disallow: /showtime-premiere

@@ -1,0 +1,309 @@
+.title {
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-family: $font-din-next-regular;
+    
+	@include arabic() {
+		font-family: $font-arabic-din-next-regular;
+	}
+
+    @media (min-width: $media-breakpoint-md) {
+        width: 50%;
+    }
+}
+.tabList {
+	list-style: none;
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+	margin-left: -15px;
+	margin-top: -10px;
+}
+.tabItem {
+	margin: 0 15px;
+	margin-top: 10px;
+	color: $color-grey-1;
+	cursor: pointer;
+	transition: color 0.35s;
+	position: relative;
+	user-select: none;
+
+	&:after {
+		transition: opacity 0.35s;
+		opacity: 0;
+		content: '';
+		position: absolute;
+		bottom: -3px;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background: $color-green;
+	}
+	&.active,
+	&:hover {
+		color: $color-green;
+	}
+	&.active {
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+.tabContainersWrapper {
+	overflow: hidden;
+}
+.tabContainer {
+	opacity: 0;
+    position: absolute; top: -9999px; left: -9999px;
+
+	&:first-child {
+		opacity: 1;
+		display: block;
+        position: unset; top: unset; left: unset;
+	}
+}
+
+body:global(.dark-mode) {
+	.tabItem {
+        color: $color-grey-7;
+		&:after {
+			background: $color-yellow;
+		}
+		&.active,
+		&:hover {
+			color: $color-yellow;
+		}
+	}
+}
+
+.wcTabsWrapper {
+    margin-top: -100px;
+
+    .tabList {
+        margin-left: unset;
+        .wcTab {
+            width: 23.7%;
+            margin-right: 15px;
+
+            @media (max-width: $media-breakpoint-sm) {
+                width: unset;
+                margin-right: 2px;
+            }
+
+            &:nth-child(1) {
+                background-color: $colorMaroon;
+            }
+            &:nth-child(2) {
+                background-color: $colorRedOrange;
+            }
+            &:nth-child(3) {
+                background-color: $colorPurple;
+            }
+            &:nth-child(4) {
+                margin-right: 0px;
+            }
+
+            div {
+                display: block;
+                position: relative;
+                width: 100%;
+                margin: 0;
+                list-style: none;
+
+                a {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    margin: 0;
+                    padding: 30px;
+                    padding-left: 42px;
+                    padding-right: 42px;
+                    padding-top: 22px;
+                    background-color: $colorMaroon;
+                    color: $color-white;
+                    cursor: pointer;
+                    overflow: hidden;
+                    text-decoration: none;
+                    font-size: 28px;
+                    font-weight: bold;
+
+                    &.active {
+                        z-index: 0
+                    }
+
+                    @media (max-width: $media-breakpoint-sm) {
+                        font-size: 15px;
+                        padding: 12px;
+                    }
+                }
+            }
+
+            .wcTabIntro {
+                width: 100%;
+                position: absolute;
+                padding-top: 25px;
+                padding-bottom: 30px;
+                display: none;
+                color: $color-white;
+                left: 0;
+                z-index: 0;
+
+                @include arabic() {
+                    right: 0;
+                }
+
+                @media (max-width: $media-breakpoint-sm) {
+                    font-size: 16px;
+                    left: 0px;
+                }
+
+                p {
+                    padding-left: 35px;
+
+                    @media (max-width: $media-breakpoint-sm) {
+                        padding-left: 10px;
+                    }
+
+                    @include arabic() {
+                        padding-left: unset;
+                        padding-right: 35px;
+
+                        @media (max-width: $media-breakpoint-sm) {
+                            padding-right: 10px;
+                        }
+                    }
+                }
+
+                &:before {
+                    content:"";
+                    background-color: $colorMaroon;
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    left: 0;
+                    z-index: -1;
+                    top: -1px;
+                }
+            }
+
+            &:nth-child(1) {
+                a {
+                    background-color: #7b1338;
+
+                    &:hover {
+                        background-color: $colorMaroon;
+                    }
+                    &.active {
+                        background-color: $colorMaroon;
+                        &:hover {
+                            background-color: $colorMaroon;
+                        }
+                    }
+                }
+
+                .wcTabIntro {
+                    &.active {
+                        display: flex;
+                        &:before {
+                            background-color: $colorMaroon;
+                        }
+                        outline: none;
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                a {
+                    background-color: #c85025;
+
+                    &:hover {
+                        background-color: $colorRedOrange;
+                    }
+                    &.active {
+                        background-color: $colorRedOrange;
+                        &:hover {
+                            background-color: $colorRedOrange;
+                        }
+                    }
+                }
+
+                .wcTabIntro {
+                    &.active {
+                        display: flex;
+                        &:before {
+                            background-color: $colorRedOrange;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                a {
+                    background-color: #543f81;
+
+                    &:hover {
+                        background-color: $colorPurple;
+                    }
+                    &.active {
+                        background-color: $colorPurple;
+                        &:hover {
+                            background-color: $colorPurple;
+                        }
+                    }
+                }
+
+                .wcTabIntro {
+                    &.active {
+                        display: flex;
+                        &:before {
+                            background-color: $colorPurple;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(4) {
+                a {
+                    background-color: $color-yellow-latest;
+                    color: $color-black-alt;
+
+                    &:hover {
+                        background-color: #fadf85;
+                    }
+                    &.active {
+                        background-color: $color-yellow-latest;
+                        &:hover {
+                            background-color: $color-yellow-latest;
+                        }
+                    }
+                }
+
+                .wcTabIntro {
+                    color: $color-black-alt;
+                    &.active {
+                        display: flex;
+                        &:before {
+                            background-color: $color-yellow-latest;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tabContainersWrapper {
+        padding-top: 150px;
+        overflow: unset;
+    }
+}
+
+:global(.color-maroon) {
+    background-color: $colorMaroon;
+}
+:global(.color-orange) {
+    background-color: $colorRedOrange;
+}
+:global(.color-purple) {
+    background-color: $colorPurple;
+}

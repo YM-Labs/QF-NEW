@@ -1,0 +1,109 @@
+.itemsWrapper {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	&:after {
+		content: '';
+		width: calc(50% - 10px);
+		@media (min-width: $media-breakpoint-sm) {
+			width: calc((100% - 40px) / 3);
+		}
+		@media (min-width: $media-breakpoint-md) {
+			width: calc((100% - 78px) / 4);
+		}
+	}
+}
+
+.titleWrapper {
+	margin-bottom: -20px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-bottom: -26px;
+	}
+}
+
+.count {
+	display: none;
+	font-size: 13px;
+	@media (min-width: $media-breakpoint-md) {
+		font-size: inherit;
+	}
+}
+
+.title {
+	font-size: 16px;
+	@media (min-width: $media-breakpoint-md) {
+		font-size: inherit;
+	}
+}
+
+.item {
+	background: #f5f4f1;
+	width: calc(50% - 10px);
+	margin-top: 20px;
+	@media (min-width: $media-breakpoint-sm) {
+		width: calc((100% - 40px) / 3);
+	}
+	@media (min-width: $media-breakpoint-md) {
+		width: calc((100% - 78px) / 4);
+		margin-top: 26px;
+	}
+	transition: background-color 0.35s, color 0.35s;
+	@include aspect-ratio(1, 1);
+
+	:global(.aspect-content) {
+		padding: 20px;
+		display: flex;
+		flex-flow: column;
+		justify-content: space-between;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+
+		&:before {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			content: '';
+			width: 31px;
+			height: 31px;
+			transform: translate3d(20px, 0, 0);
+			opacity: 0;
+			transition: transform 0.35s $ease-out-quad, opacity 0.35s;
+			background: url('../assets/svgs/icon_arrow_right.svg') no-repeat;
+			@include arabic() {
+				transform: translate3d(-20px, 0, 0) scaleX(-1);
+				right: auto;
+				left: 20px;
+			}
+		}
+	}
+
+	&:hover {
+		color: $color-white;
+		background: $color-green;
+		transition: background-color 0.55s, color 0.45s;
+
+		:global(.aspect-content) {
+			&:before {
+				transition: transform 0.5s $ease-out-quad, opacity 0.4s;
+				transform: translate3d(0px, 0, 0) !important;
+				opacity: 1;
+				@include arabic() {
+					transform: translate3d(0px, 0, 0) scaleX(-1) !important;
+				}
+			}
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.item {
+		background: $color-dark-1;
+	}
+}

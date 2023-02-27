@@ -1,0 +1,248 @@
+.bgGrey {
+	background-color: $color-orange;
+}
+
+.light {
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+
+	.wrapper {
+		.pollContainer {
+			padding-bottom: 0px;
+
+			.poll {
+				padding: 0px;
+			}
+		}
+	}
+}
+
+.wrapper {
+	width: 100%;
+
+	h2 {
+		/* Subheadline: */
+		font-family: $font-din-next-medium;
+		@include arabic() {
+			font-family: $font-arabic-din-next-medium;
+		}
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+
+	.pollContainer {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		color: $color-white;
+
+		.poll {
+			display: flex;
+			flex-direction: row;
+			font-family: inherit;
+
+			@media (max-width: $media-breakpoint-sm) {
+				flex-direction: column;
+			}
+
+			.questionWrapper {
+				width: calc(40% - 0px);
+				@media (max-width: $media-breakpoint-sm) {
+					width: 100%;
+				}
+
+				.question {
+					color: $color-white;
+					text-align: inherit;
+					font-weight: normal;
+					margin: 0;
+					font-size: 30px;
+					padding-bottom: 15px;
+					font-weight: 700;    
+                    line-height: 32px;
+
+					@media (max-width: $media-breakpoint-sm) {
+						font-size: 26px;
+					}
+
+					@include arabic() {
+						width: 85%;
+						line-height: 45px;
+					}
+				}
+				.votes {
+					text-align: left;
+					margin: 0;
+					padding: 0;
+					color: $color-white;
+					margin-top: 10px;
+					opacity: 0.8;
+
+					@include arabic() {
+						text-align: right;
+					}
+				}
+			}
+
+			.answersWrapper {
+				width: calc(60% - 0px);
+				margin-top: 5px;
+
+				@media (max-width: $media-breakpoint-sm) {
+					width: 100%;
+				}
+				.answers {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					display: flex;
+					flex: 1;
+					flex-direction: row;
+					flex-wrap: wrap;
+					margin: 5px 0;
+					@media (max-width: $media-breakpoint-sm) {
+						margin-top: 30px;
+					}
+
+					li {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						flex: 1;
+						flex-direction: column;
+						flex-basis: calc(50% - 30px);
+						margin-bottom: 20px;
+						margin-left: 20px;
+
+						@media (max-width: $media-breakpoint-sm) {
+							flex-basis: 100%;
+							margin-left: 0px;
+							margin-bottom: 15px;
+						}
+					}
+
+					.option {
+						border: 1px solid $color-white;
+						cursor: pointer;
+						width: 100%;
+						font-size: 100%;
+						line-height: 1.5;
+						margin: 0;
+						padding: 10px;
+						transition: all 0.3s ease;
+						outline: 0;
+						font-family: inherit;
+						background-color: inherit;
+						text-align: left;
+						padding-top: 6px;
+						color: $color-white;
+						border-color: $color-white;
+
+						&:hover {
+							background-color: rgba(255, 255, 255, 0.23);
+						}
+
+                        @include arabic() {
+                            text-align: right;
+                        }
+					}
+
+					.result {
+						border: 1px solid $color-white;
+						width: 100%;
+						font-size: 100%;
+						line-height: 1.5;
+						margin: 0;
+						outline: 0;
+						font-family: inherit;
+						background-color: inherit;
+						text-align: left;
+						border-color: $color-white;
+						color: $color-white;
+						position: relative;
+						height: 42px;
+						cursor: default;
+
+						.fill {
+							width: 0%;
+							height: 100%;
+							display: flex;
+							align-items: center;
+							background-color: rgba(255, 255, 255, 0.23);
+
+							-webkit-animation: progress-bar 2s;
+							-moz-animation: progress-bar 2s;
+							animation: progress-bar 2s;
+						}
+
+						@keyframes progress-bar {
+							0% { width: 0; }
+						}
+
+						.labels {
+							position: absolute;
+							top: calc(15px - 9px);
+							margin: 0 10px;
+							font-size: 16px;
+						}
+
+						.answer {
+							margin-left: 15px;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							white-space: nowrap;
+
+							@include arabic() {
+								margin-right: 15px !important;
+							}
+
+							&.vote::after {
+								content: ' \2713';
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+:global(.sidebarPoll) {
+	.wrapper {
+		.pollContainer {
+			.poll {
+				flex-direction: column;
+
+				.questionWrapper {
+					width: 100%;
+
+					.question {
+						font-size: 26px;
+
+                        @include arabic() {
+                            width: 100%;
+                        }
+					}
+				}
+				.answersWrapper {
+					width: 100%;
+					.answers {
+						margin-top: 30px;
+
+						li {
+							flex-basis: 100%;
+							margin-left: 0px;
+							margin-bottom: 15px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.light {
+		background-color: transparent;
+	}
+}

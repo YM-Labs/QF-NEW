@@ -1,0 +1,131 @@
+form input.st-ecss-search-input {
+	outline: none;
+}
+
+.swiftype-widget .autocompleteecss {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: auto;
+	position: absolute;
+}
+
+.swiftype-widget .autocompleteecss ul {
+	background-color: #fff;
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: auto;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+
+.swiftype-widget .autocompleteecss li {
+	cursor: pointer;
+	list-style-type: none;
+	background-image: none;
+	margin: 0;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.swiftype-widget .autocompleteecss li:first-child {
+}
+
+.swiftype-widget .autocompleteecss li:last-child {
+}
+
+.swiftype-widget .autocompleteecss li.active {
+	color: #cecece;
+}
+
+.swiftype-widget .autocompleteecss li p {
+	font-size: 20px;
+	line-height: 35px;
+	margin: 0;
+	padding: 0;
+}
+
+.swiftype-widget .autocompleteecss li p.title {
+	color: #000;
+	opacity: 0.27;
+	transition: opacity 0.1s;
+}
+
+.swiftype-widget .autocompleteecss li p.title em {
+	color: #0b2644;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.swiftype-widget .autocompleteecss li.active p.title {
+	color: #000;
+	opacity: 1;
+}
+
+.swiftype-widget .autocompleteecss li.active p.title em {
+	color: #000;
+	font-style: normal;
+}
+
+.swiftype-widget .autocompleteecss li .sections {
+	color: #999;
+	font-size: 11px;
+}
+
+.swiftype-widget .autocompleteecss li .sections em {
+	color: #666;
+	font-style: normal;
+}
+
+.swiftype-widget .autocompleteecss li .sections .section {
+	display: inline;
+}
+
+.swiftype-widget .autocompleteecss li.active .sections {
+	color: #a9d7f1;
+}
+
+.swiftype-widget .autocompleteecss li.active .sections em {
+	color: #a9d7f1;
+	font-style: normal;
+}
+
+.swiftype-widget .autocompleteecss li.noResults {
+	pointer-events: none;
+}
+
+body.dark-mode .swiftype-widget .autocompleteecss ul {
+	background-color: transparent;
+
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+	        box-shadow: none;
+}
+
+body.dark-mode .swiftype-widget .autocompleteecss li {
+	padding-left: 0px;
+}
+
+html[lang='ar'] body.dark-mode .swiftype-widget .autocompleteecss li  {
+	padding-left: unset;
+	padding-right: 0px;
+}
+
+body.dark-mode .swiftype-widget .autocompleteecss li p.title {
+	color: #fff;
+	opacity: 0.7;
+}
+
+body.dark-mode .swiftype-widget .autocompleteecss li.active p.title {
+	color: #fff;
+	opacity: 1;
+}
+
+body.dark-mode .swiftype-widget .autocompleteecss li .sections em {
+	color: #f2f2f2;
+}

@@ -1,0 +1,11 @@
+.wrapper {
+    clear: both;
+	width: 100%;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+    @include arabic() {
+        margin-right: unset;
+        margin-left: 20px;
+    }
+}

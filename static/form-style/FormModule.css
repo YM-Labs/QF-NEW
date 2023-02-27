@@ -1,0 +1,205 @@
+div[id='3a614798-b8b3-5ca4-b9d0-8cc18397cf84'] .ModulePinpointList-module--listItem--2o_El,
+div[id='ded6a58e-4e18-5038-832a-afdd437cc42b'] .ModulePinpointList-module--listItem--2o_El {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none; }
+  div[id='3a614798-b8b3-5ca4-b9d0-8cc18397cf84'] .ModulePinpointList-module--listItem--2o_El .ModulePinpointList-module--toggleIcon--2v8cb,
+  div[id='ded6a58e-4e18-5038-832a-afdd437cc42b'] .ModulePinpointList-module--listItem--2o_El .ModulePinpointList-module--toggleIcon--2v8cb {
+    display: none !important; }
+
+#gatsby-plugin-page-progress {
+  top: 60px !important;
+  z-index: 3 !important; }
+
+/**
+* Sass CSS triangle mixin, create any kind of triangles with ease
+
+* Use:
+* @include triangle(direction,width,height,color);
+
+* Example:
+* $square: 50px;
+* $color: red;
+* selector {
+*	 @include triangle(bottomright,$square,$square,$color);
+* }
+
+* Forked from https://github.com/juanbrujo/triangle-mixin.less
+*/
+@font-face {
+  font-family: 'DIN Next LT W01 Regular';
+  src: url("https://hm-dev--qf.netlify.app/fonts/936930ba-a8da-4765-9e89-0f35cdff223f.eot?#iefix");
+  src: url("https://hm-dev--qf.netlify.app/fonts/936930ba-a8da-4765-9e89-0f35cdff223f.eot?#iefix") format("eot"), url("https://hm-dev--qf.netlify.app/fonts/6b4d4830-9c7d-43d2-b5d3-c73f739561b9.woff2") format("woff2"), url("https://hm-dev--qf.netlify.app/fonts/ccf25ada-6d2a-4133-95dc-deb039e22999.woff") format("woff"), url("https://hm-dev--qf.netlify.app/fonts/126195b4-2fa0-4b95-b5cf-ad9bf10193f0.ttf") format("truetype");
+  font-display: swap; }
+
+@font-face {
+  font-family: 'DIN Next LT W23';
+  src: url("https://hm-dev--qf.netlify.app/fonts/fonts/644ad789-1663-4740-a778-649cfad3951a.eot?#iefix");
+  src: url("https://hm-dev--qf.netlify.app/fonts/fonts/644ad789-1663-4740-a778-649cfad3951a.eot?#iefix") format("eot"), url("https://hm-dev--qf.netlify.app/fonts/fonts/c6c7dd26-fbc9-4da1-81e1-6958e1d970d1.woff2") format("woff2"), url("https://hm-dev--qf.netlify.app/fonts/fonts/b53d284e-baaa-45fe-a2d9-9ed3d364834f.woff") format("woff"), url("https://hm-dev--qf.netlify.app/fonts/fonts/decc2f6c-155a-4101-aaa9-e8570711af71.ttf") format("truetype");
+  font-display: swap; }
+
+body {
+  margin: 0;
+  background-color: transparent !important;
+  position: absolute !important; }
+
+.thankyou .form-all {
+  box-shadow: none;
+  max-width: none; }
+
+.thankyou * {
+  font-family: "DIN Next LT W01 Regular" !important;
+  color: #11362A !important; }
+  html[lang='ar'] .thankyou * {
+    font-family: 'DIN Next LT W23' !important; }
+
+.custom-form {
+  /*	.form-line-column {
+			width: calc(50% - 12px);
+		}*/ }
+  .custom-form .form-all {
+    background-color: transparent;
+    max-width: 100%;
+    box-shadow: none; }
+    html[lang='ar'] .custom-form .form-all * {
+      font-family: "DIN Next LT W23", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif !important; }
+    .custom-form .form-all .form-header-group h1.form-header {
+      font-size: 30px;
+      color: #000000 !important;
+      letter-spacing: 0;
+      line-height: 36px; }
+    .custom-form .form-all .form-header-group .form-subHeader {
+      max-width: 280px;
+      margin-top: 30px;
+      font-size: 16px;
+      line-height: 24px;
+      color: #414141 !important;
+      letter-spacing: 0; }
+  .custom-form form {
+    padding-bottom: 20px; }
+  .custom-form .form-required {
+    margin-left: 0;
+    margin-right: 0; }
+  .custom-form input::placeholder {
+    display: none;
+    color: #9C9C9C !important; }
+  .custom-form div[data-layout="full"] {
+    max-width: 100%; }
+  .custom-form div[data-layout="half"] {
+    max-width: 100%; }
+  .custom-form .form-spinner-button.form-spinner-up:before {
+    background-image: url("data:image/svg+xml,%3Csvg width='11' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23124538' fill-rule='evenodd'%3E%3Cpath d='M0 5h11v1H0z'/%3E%3Cpath d='M5 0h1v11H5z'/%3E%3C/g%3E%3C/svg%3E"); }
+  .custom-form .form-spinner-button.form-spinner-down:before {
+    background-image: url("data:image/svg+xml,%3Csvg width='11' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23124538' fill-rule='evenodd'%3E%3Cpath d='M0 5h11v1H0z'/%3E%3C/g%3E%3C/svg%3E"); }
+  .custom-form .form-radio + label:after, .custom-form .form-radio + span:after, .custom-form .form-checkbox:after, .custom-form .form-checkbox:checked + label:after, .custom-form .form-checkbox:checked + span:before {
+    background: url("data:image/svg+xml,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h15v15H0z'/%3E%3Cpath stroke='%2311362A' stroke-linecap='square' d='M10.69 4.5l-4.112 6.281L3.69 8.134'/%3E%3C/g%3E%3C/svg%3E"); }
+  .custom-form .form-radio + label, .custom-form .form-checkbox + label, .custom-form .form-checkbox:checked + label {
+    padding-right: 20px; }
+  html[lang='ar'] .custom-form .form-radio + label {
+    padding-left: 20px; }
+  html[lang='ar'] .custom-form .form-checkbox + label {
+    padding-left: 20px; }
+  html[lang='ar'] .custom-form .form-checkbox:checked + label {
+    padding-left: 20px; }
+  .custom-form .form-line-error .form-checkbox:not(:checked):hover + label:before, .custom-form .form-line-error .form-radio:not(:checked):hover + label:before {
+    border: 1px solid #E14626 !important;
+    transition: none !important;
+    box-shadow: none !important; }
+  .custom-form .form-line-error .form-checkbox:not(:checked):focus + label:before, .custom-form .form-line-error .form-radio:not(:checked):focus + label:before {
+    border: 1px solid #E14626 !important;
+    transition: none !important;
+    box-shadow: none !important; }
+  .custom-form .rating-item .form-radio + label {
+    padding-left: 0;
+    padding-right: 0; }
+    html[lang='ar'] .custom-form .rating-item .form-radio + label {
+      padding-left: 0px; }
+  .custom-form .rating-item .form-checkbox + label {
+    padding-left: 0;
+    padding-right: 0; }
+    html[lang='ar'] .custom-form .rating-item .form-checkbox + label {
+      padding-left: 0px; }
+  .custom-form .rating-item .form-checkbox:checked + label {
+    padding-left: 0;
+    padding-right: 0; }
+    html[lang='ar'] .custom-form .rating-item .form-checkbox:checked + label {
+      padding-left: 0px; }
+  html[lang='ar'] .custom-form .httal {
+    text-align: right; }
+  .custom-form .form-submit-button:before {
+    content: '';
+    width: 31px;
+    height: 31px;
+    box-sizing: content-box;
+    display: inline-block;
+    border-radius: 50%;
+    transition: background-position cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+    background-color: #11362A;
+    background-image: url("data:image/svg+xml,%3Csvg width='62' height='31' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(1 1)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M17.7 14l-4.03-3.63.66-.74 5.42 4.87-5.42 4.87-.66-.74L17.7 15H9v-1h8.7z' fill='%23ffffff'/%3E%3C/g%3E%3Cg transform='translate(32 1)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M17.7 14l-4.03-3.63.66-.74 5.42 4.87-5.42 4.87-.66-.74L17.7 15H9v-1h8.7z' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: -31px 0;
+    background-size: 62px 31px;
+    margin-right: 14px; }
+    html[lang='ar'] .custom-form .form-submit-button:before {
+      transform: scaleX(-1);
+      margin-right: 14px;
+      margin-left: 0; }
+  .custom-form .form-submit-button:hover {
+    background-color: transparent; }
+    .custom-form .form-submit-button:hover:before {
+      background-position: 0px 0; }
+  .custom-form select[multiple] {
+    background: none !important; }
+
+.dark-mode.custom-form .form-all .form-header-group h1.form-header {
+  color: #ffffff !important; }
+
+.dark-mode.custom-form .form-all .form-header-group .form-subHeader {
+  color: #bebcbc !important; }
+
+.dark-mode.custom-form .form-submit-button:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='62' height='31' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(1 1)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M17.7 14l-4.03-3.63.66-.74 5.42 4.87-5.42 4.87-.66-.74L17.7 15H9v-1h8.7z' fill='%231C1F21'/%3E%3C/g%3E%3Cg transform='translate(32 1)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M17.7 14l-4.03-3.63.66-.74 5.42 4.87-5.42 4.87-.66-.74L17.7 15H9v-1h8.7z' fill='%231C1F21'/%3E%3C/g%3E%3C/svg%3E%0A"); }
+
+.dark-mode.custom-form .form-section.page-section input::placeholder {
+  display: none;
+  color: #bebcbc !important; }
+
+.dark-mode.custom-form .form-all .form-label {
+  color: #bebcbc !important; }
+
+.dark-mode.custom-form .form-spinner-button.form-spinner-up:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23F2F2F0' fill-rule='evenodd'%3E%3Cpath d='M0 5h11v1H0z'/%3E%3Cpath d='M5 0h1v11H5z'/%3E%3C/g%3E%3C/svg%3E"); }
+
+.dark-mode.custom-form .form-spinner-button.form-spinner-down:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23F2F2F0' fill-rule='evenodd'%3E%3Cpath d='M0 5h11v1H0z'/%3E%3C/g%3E%3C/svg%3E"); }
+
+.dark-mode.custom-form .form-radio + label:after, .dark-mode.custom-form .form-radio + span:after, .dark-mode.custom-form .form-checkbox:after, .dark-mode.custom-form .form-checkbox:checked + label:after, .dark-mode.custom-form .form-checkbox:checked + span:before {
+  background: url("data:image/svg+xml,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h15v15H0z'/%3E%3Cpath stroke='%23f8e71b' stroke-linecap='square' d='M10.69 4.5l-4.112 6.281L3.69 8.134'/%3E%3C/g%3E%3C/svg%3E"); }
+
+.dark-mode.custom-form .form-dropdown {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23F2F2F0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+
+/* Form on side */
+@media (min-width: 768px) {
+  .custom-form.form-on-side .form-all li[data-type="control_head"] {
+    margin-bottom: 0; }
+  .custom-form.form-on-side .form-all {
+    position: static; }
+  .custom-form.form-on-side .jotform-form {
+    width: 50%;
+    margin-left: auto; }
+    html[lang='ar'] .custom-form.form-on-side .jotform-form {
+      margin-left: 0;
+      margin-right: auto; }
+    .custom-form.form-on-side .jotform-form .form-header-group {
+      top: 0;
+      left: 0;
+      padding-right: 25px !important;
+      margin-top: 21px !important;
+      position: absolute !important;
+      width: 50%; }
+      html[lang='ar'] .custom-form.form-on-side .jotform-form .form-header-group {
+        padding-left: 25px !important;
+        padding-right: 0px !important;
+        left: auto;
+        right: 0; } }

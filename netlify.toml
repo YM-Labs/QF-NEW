@@ -1,0 +1,81 @@
+[build]
+  publish = "public"
+
+[[headers]]
+  for = "/static/*.woff"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Content-Type = "application/font-woff"
+
+[[headers]]
+  for = "/static/*.ttf"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Content-Type = "application/font-ttf"    
+	
+[[headers]]
+  for = "/fonts/*.woff2"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Content-Type = "application/font-woff2"
+
+[[headers]]
+  for = "/fonts/*.woff"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://*.jotform.com"
+    Content-Type = "application/font-woff"
+
+[[headers]]
+  for = "/fonts/*.ttf"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://*.jotform.com"
+    Content-Type = 	"application/font-ttf"
+
+[[headers]]
+  for = "/fonts/*.woff2"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://*.jotform.com"
+    Content-Type = "application/font-woff2"
+
+[[headers]]
+  for = "/fonts/*.eot"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://*.jotform.com"
+    Content-Type = "application/font-woff2"
+
+[[headers]]
+  for = "/page-data/*.json"
+  [headers.values]
+    Access-Control-Allow-Origin = '''
+    https://qf.com.qa,
+    https://qf.qa'''
+    Content-Type = "application/json"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+	X-Frame-Options = "SAMEORIGIN"
+	X-XSS-Protection = "1; mode=block"
+
+[[redirects]]
+  from = "/"
+  to = "/ar"
+  status = 302
+  force = true
+  conditions = {Country = ["qa"], Language = ["ar","ar-qa"]}
+
+[[redirects]]
+  from = "/ar/*"
+  to = "/ar/404.html"
+  status = 404
+  force = false
+
+[[redirects]]
+  from = "/*"
+  to = "/en/404.html"
+  status = 404
+  force = false
+
+[context.development.environment]
+  CONTENTFUL_SPACE_ID="2h1qowfuxkq7"
+  CONTENTFUL_ACCESS_TOKEN="58c4afc16acba8b5b5a1f79a13f22cb0e140a4e3a5ab3355da49ff6bfd9a7978"

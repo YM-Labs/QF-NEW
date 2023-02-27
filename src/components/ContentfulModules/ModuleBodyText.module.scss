@@ -1,0 +1,17 @@
+.wrapper {
+	width: 100%;
+	@media (min-width: $media-breakpoint-xl) {
+		margin-left: auto;
+		margin-right: auto;
+		width: 75%;
+	}
+	h2 {
+		/* Subheadline: */
+		font-family: $font-din-next-medium;
+		@include arabic() {
+			font-family: $font-arabic-din-next-medium;
+		}
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+}

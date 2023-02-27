@@ -1,0 +1,15 @@
+.svg {
+	.cls1,
+	.cls2 {
+		fill: none;
+		stroke: #ffffff;
+		stroke-width: 4px;
+	}
+	.cls1 {
+		stroke-miterlimit: 10;
+	}
+	.cls2 {
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+}

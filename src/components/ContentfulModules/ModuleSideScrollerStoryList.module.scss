@@ -1,0 +1,160 @@
+.listWrapper {
+	display: flex;
+	flex-flow: row;
+
+	& > div:last-child {
+		padding-right: 0;
+	}
+}
+
+.dragWrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+.arrows {
+	margin-bottom: 40px;
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-end;
+
+	a {
+		background: url('../../assets/svgs/icon_arrow_right_green.svg') no-repeat;
+		width: 31px;
+		height: 31px;
+		display: inline-block;
+		opacity: 0.5;
+		transition: opacity 0.2s;
+
+		&.active {
+			opacity: 1;
+		}
+
+		&.prevButton {
+			margin-right: 10px;
+			transform: scaleX(-1);
+		}
+
+		@include arabic() {
+			transform: scaleX(-1);
+			&.prevButton {
+				margin-right: 0px;
+				margin-left: 10px;
+				transform: none;
+			}
+		}
+	}
+}
+
+.storyItem {
+	padding-right: 100px;
+	display: flex;
+	flex-flow: column;
+	flex-shrink: 0;
+	@include arabic() {
+		padding-left: 100px;
+		padding-right: 0px;
+	}
+}
+
+.storyItemTitle {
+	position: absolute;
+	left: 0;
+	top: 40px;
+	padding-right: 100px;
+	@include arabic() {
+		left: auto;
+		right: 0;
+		padding-left: 100px;
+		padding-right: 0px;
+	}
+	display: block;
+}
+
+.storyItemListWrapper {
+	display: flex;
+	flex-flow: row;
+}
+
+.descriptionAndImages {
+	border-top: 1px solid $color-grey-3;
+	padding-top: 90px + 40px;
+	@media (min-width: $media-breakpoint-md) {
+		padding-top: 90px + 40px +90px;
+	}
+	display: flex;
+	flex-flow: row;
+
+	& + .descriptionAndImages {
+		padding-left: 20px;
+	}
+}
+
+.image {
+	display: inline-block;
+	flex-shrink: 0;
+
+	img {
+		max-height: 310px;
+		top: 0;
+		left: 0;
+		transition: opacity 0.5s;
+		height: 310px;
+	}
+
+	& + .image {
+		padding-left: 20px;
+		@include arabic() {
+			padding-left: 0px;
+			padding-right: 20px;
+		}
+	}
+}
+
+.gatsbyImageWrapperInner {
+	display: inline-block;
+}
+
+.description {
+	width: 220px;
+	line-height: 22px;
+
+	& + .description {
+		padding-left: 100px;
+		@include arabic() {
+			padding-left: 0px;
+			padding-right: 100px;
+		}
+	}
+
+	& + .image {
+		padding-left: 20px;
+		@include arabic() {
+			padding-left: 0px;
+			padding-right: 20px;
+		}
+	}
+
+	strong {
+		font-size: 20px;
+		line-height: 26px;
+		font-weight: normal;
+		display: block;
+		margin-bottom: 20px;
+		font-family: $font-din-next-medium;
+		@include arabic() {
+			font-family: $font-arabic-din-next-medium;
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.arrows {
+		a {
+			background: url('../../assets/svgs/icon_arrow_right_white.svg') no-repeat;
+		}
+	}
+	.descriptionAndImages {
+		border-top: 1px solid $color-grey-1;
+	}
+}

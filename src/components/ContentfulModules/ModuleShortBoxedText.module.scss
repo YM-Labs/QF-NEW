@@ -1,0 +1,260 @@
+.wrapper {
+	@media (min-width: $media-breakpoint-md) {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+	}
+
+	&.open {
+		:local(.toggleIcon) {
+			transition: transform 0.35s $default-ease;
+			transform: rotateZ(45deg);
+		}
+	}
+
+
+	.shortBoxedWrapper {
+		background: $color-white-2;
+		padding: 44px 20px 25px;
+		box-sizing: border-box;
+		cursor: pointer;
+		margin-right: -15px;
+		margin-left: -15px;
+		max-width: 814px;
+
+        @include arabic() {
+            @media (max-width: $media-breakpoint-sm) {
+                margin-right: unset;
+                margin-left: unset;
+            }
+		}
+
+		@media (min-width: $media-breakpoint-md) {
+			width: 100%;
+			margin-right: auto;
+			margin-left: auto;
+			padding: 58px 54px 25px;
+		}
+
+		@media (min-width: $media-breakpoint-lg) {
+			width: 86%;
+		}
+	}
+
+    .fullWidth {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 110px;
+        margin-bottom: 0px;
+
+        @media (max-width: $media-breakpoint-sm) {
+			margin-top: 60px;
+            margin-left: 0px;
+		}
+    }
+
+	.title {
+		font-size: 24px;
+		font-family: $font-pf-din-next-bold;
+		color: #0F362A;
+		margin-bottom: 12px;
+
+		@media (min-width: $media-breakpoint-md) {
+			font-size: 32px;
+		}
+
+        @include arabic() {
+			font-family: $font-arabic-din-next-medium;
+		}
+	}
+
+	.introParagraphText {
+		color: #0A372A;
+		font-size: 16px;
+		margin-bottom: 40px;
+		font-family: $font-din-next-light;
+		line-height: 1.4em;
+
+		@include arabic() {
+			font-family: $font-arabic-din-next-light;
+		}
+
+		@media (min-width: $media-breakpoint-md) {
+			font-size: 22px;
+		}
+	}
+
+	.expandedParagraph {
+		overflow: hidden;
+		height: 0;
+		transition: height 0.65s $default-ease;
+
+		.expandedParagraphInner {
+			padding-bottom: 40px;
+			box-sizing: border-box;
+		}
+	}
+
+	.expandedParagraphText {
+		color: $color-grey;
+		line-height: 1.6em;
+		font-size: 16px;
+		font-family: $font-din-next-regular;
+
+		@include arabic() {
+			font-family: $font-arabic-din-next-regular;
+		}
+
+		@media (min-width: $media-breakpoint-md) {
+			font-size: 20px;
+		}
+	}
+
+	.readMoreBar {
+		border-top: 1px solid #BEBCBC;
+		display: flex;
+		align-items: center;
+		padding-top: 20px;
+	}
+
+	.readMoreLabel {
+		color: #0A372A;
+		font-size: 16px;
+		font-family: $font-din-next-regular;
+
+		@include arabic() {
+			font-family: $font-arabic-din-next-regular;
+		}
+	}
+
+	.toggleIcon {
+		width: 22px;
+		height: 22px;
+		position: relative;
+		margin-right: 20px;
+		transform: rotateZ(0);
+		transition: transform 0.55s $default-ease;
+
+		@include arabic() {
+			margin-left: 20px;
+			margin-right: 0;
+		}
+
+		&:before {
+			content: '';
+			width: 22px;
+			height: 2px;
+			background: $color-brand;
+			display: block;
+			position: absolute;
+			left: calc(50% - 11px);
+			top: calc(50% - 1px);
+		}
+
+		&:after {
+			content: '';
+			height: 22px;
+			width: 2px;
+			background: $color-brand;
+			display: block;
+			position: absolute;
+			will-change: transform;
+			top: calc(50% - 11px);
+			left: calc(50% - 1px);
+		}
+	}
+
+
+	&.darkBackground {
+		.shortBoxedWrapper {
+			background: $color-brand;
+		}
+
+		.title,
+		.introParagraphText,
+		.readMoreLabel {
+			color: $color-white;
+		}
+
+		.title,
+		.introParagraphText,
+		.readMoreLabel {
+			color: $color-white;
+		}
+
+		.expandedParagraphText {
+			color: $color-white-alt;
+		}
+
+		.toggleIcon {
+			&:before {
+				background: $color-white;
+			}
+			&:after {
+				background: $color-white;
+			}
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.wrapper{
+		&:not(.darkBackground) {
+			.toggleIcon {
+				&:before {
+					background: $color-white;
+				}
+
+				&:after {
+					background: $color-white;
+				}
+			}
+
+			.title,
+			.introParagraphText,
+			.readMoreLabel {
+				color: $color-white;
+			}
+
+			.expandedParagraphText {
+				color: $color-white-alt;
+			}
+
+			.shortBoxedWrapper {
+				background: #1C1F21;
+			}
+		}
+
+		&.darkBackground {
+			.toggleIcon {
+				&:before {
+					background: #1C1F21;
+				}
+
+				&:after {
+					background: #1C1F21;
+				}
+			}
+
+			.title,
+			.introParagraphText,
+			.readMoreLabel {
+				color: #1C1F21;
+			}
+
+			.expandedParagraphText {
+				color: #1C1F21;
+			}
+			.readMoreBar {
+				border-top: 1px solid #1C1F21;
+			}
+			.shortBoxedWrapper {
+				background: $color-yellow;
+			}
+		}
+
+	}
+
+
+}
+

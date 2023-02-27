@@ -1,0 +1,113 @@
+form input.st-search-input {
+	outline: none;
+}
+
+.swiftype-widget .autocomplete {
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	position: static !important;
+	display: block !important;
+}
+
+.swiftype-widget .autocomplete ul {
+	background-color: #fff;
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+.swiftype-widget .autocomplete li {
+	cursor: pointer;
+	list-style-type: none;
+	background-image: none;
+	margin: 0;
+}
+
+.swiftype-widget .autocomplete li:first-child {
+}
+
+.swiftype-widget .autocomplete li:last-child {
+}
+
+.swiftype-widget .autocomplete li.active {
+	color: #cecece;
+}
+
+.swiftype-widget .autocomplete li p {
+	font-size: 20px;
+	line-height: 35px;
+	margin: 0;
+	padding: 0;
+}
+
+.swiftype-widget .autocomplete li p.title {
+	color: #000;
+	opacity: 0.27;
+	transition: opacity 0.1s;
+}
+
+.swiftype-widget .autocomplete li p.title em {
+	color: #0b2644;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.swiftype-widget .autocomplete li.active p.title {
+	color: #000;
+	opacity: 1;
+}
+
+.swiftype-widget .autocomplete li.active p.title em {
+	color: #000;
+	font-style: normal;
+}
+
+.swiftype-widget .autocomplete li .sections {
+	color: #999;
+	font-size: 11px;
+}
+
+.swiftype-widget .autocomplete li .sections em {
+	color: #666;
+	font-style: normal;
+}
+
+.swiftype-widget .autocomplete li .sections .section {
+	display: inline;
+}
+
+.swiftype-widget .autocomplete li.active .sections {
+	color: #a9d7f1;
+}
+
+.swiftype-widget .autocomplete li.active .sections em {
+	color: #a9d7f1;
+	font-style: normal;
+}
+
+.swiftype-widget .autocomplete li.noResults {
+	pointer-events: none;
+}
+
+body.dark-mode .swiftype-widget .autocomplete ul {
+	background-color: transparent;
+}
+
+body.dark-mode .swiftype-widget .autocomplete li p.title {
+	color: #fff;
+	opacity: 0.7;
+}
+
+body.dark-mode .swiftype-widget .autocomplete li.active p.title {
+	color: #fff;
+	opacity: 1;
+}
+
+body.dark-mode .swiftype-widget .autocomplete li .sections em {
+	color: #f2f2f2;
+}

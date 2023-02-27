@@ -1,0 +1,46 @@
+.itemsWrapper {
+	display: flex;
+	flex-flow: column;
+
+	ul {
+		list-style: none;
+	}
+}
+
+.wrapper {
+	:global(.SelectList) {
+		max-width: 280px;
+		margin-right: 40px;
+		@include arabic() {
+			margin-right: 0;
+			margin-left: 40px;
+		}
+	}
+}
+.listHeadings {
+	display: flex;
+	color: $color-grey;
+	flex-flow: row;
+	justify-content: space-between;
+	border-bottom: 1px solid $color-grey-3;
+	padding-bottom: 30px;
+	& > div:last-child {
+		width: calc(50% - 60px);
+	}
+	&:after {
+		content: '';
+		display: block;
+		width: 31px;
+	}
+	margin-top: 35px !important;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 75px !important;
+	}
+	@media (min-width: $media-breakpoint-xxl) {
+		margin-top: 90px !important;
+	}
+}
+
+.listHeading {
+	width: calc(50% - 20px);
+}

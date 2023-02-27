@@ -1,0 +1,49 @@
+.wrapper {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    grid-column: span 2;
+
+    @include arabic() {
+        margin-right: unset;
+        margin-left: 20px;
+    }
+
+    @media (max-width: $media-breakpoint-sm) {
+        margin-right: unset;
+
+        @include arabic() {
+            margin-left: unset;
+        }
+	}
+
+    textarea {
+        &::-webkit-input-placeholder {
+            font-family: $font-din-next-regular;
+            @include arabic() {
+                font-family: $font-arabic-din-next-regular;
+            }
+        }
+
+        &::-moz-placeholder {
+            font-family: $font-din-next-regular;
+            @include arabic() {
+                font-family: $font-arabic-din-next-regular;
+            }
+        }
+
+        &:-ms-input-placeholder {
+            font-family: $font-din-next-regular;
+            @include arabic() {
+                font-family: $font-arabic-din-next-regular;
+            }
+        }
+
+        &:-moz-placeholder {
+            font-family: $font-din-next-regular;
+            @include arabic() {
+                font-family: $font-arabic-din-next-regular;
+            }
+        }
+    }
+}

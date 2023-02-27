@@ -1,0 +1,336 @@
+.logo {
+	display: block;
+	max-width: 200px;
+	height: auto;
+	position: relative;
+	@media (min-width: $media-breakpoint-md) {
+		left: 0;
+		margin-left: 18px;
+		margin-right: 18px;
+		@include arabic() {
+			left: auto;
+			right: 0;
+		}
+	}
+
+	@media (max-width: $media-breakpoint-sm) {
+		margin-left: 22px;
+
+		@include arabic() {
+			margin-right: 22px;
+		}
+	}
+}
+
+@media (min-width: $media-breakpoint-md) {
+	.length2 {
+		:local(.listItem) {
+			width: calc(50% - 20px);
+		}
+	}
+	.length3 {
+		:local(.listItem) {
+			width: calc(33.333333% - 20px);
+		}
+	}
+	.length4 {
+		:local(.listItem) {
+			width: calc(25% - 20px);
+		}
+	}
+}
+
+.title {
+	margin-top: 11px;
+	margin-bottom: auto;
+}
+
+.wrapper {
+	position: absolute;
+	background: #ffffff;
+	z-index: 10;
+	height: 100vh;
+}
+
+.listWrapper {
+	list-style: none;
+	display: flex;
+	flex-flow: column;
+	margin-right: -20px;
+	transition: opacity 0.35s;
+	@media (min-width: $media-breakpoint-md) {
+		flex-flow: row;
+		flex-wrap: wrap;
+	}
+}
+
+.listItem {
+	margin-top: -1px;
+	border-top: 1px solid $color-grey-3;
+	border-bottom: 1px solid $color-grey-3;
+	cursor: pointer;
+	display: flex;
+	flex-flow: column;
+	position: relative;
+	flex-shrink: 0;
+	margin-right: 20px;
+}
+
+.open {
+	:local(.toggleIcon) {
+		&:after {
+			transition: transform 0.35s $default-ease;
+			transform: scaleY(0);
+		}
+	}
+
+	.descriptionWrapper {
+		& > div {
+			//height: 66px;
+			//-webkit-line-clamp: unset;
+		}
+	}
+}
+
+.detail {
+	margin-top: 100px;
+	position: relative;
+	z-index: 1;
+}
+
+.ctaBottom {
+	margin-bottom: $padding-xs;
+	margin-top: 20px;
+
+	.ctaLink {
+		display: inline-flex;
+		flex-flow: row !important;
+		align-items: center;
+		color: $color-green;
+		margin-top: 15px;
+		@media (min-width: $media-breakpoint-md) {
+			margin-top: auto;
+			padding-top: 15px;
+		}
+
+		&:global(.module-margin-small) {
+			padding-top: 0;
+			@include module-margin-small(true);
+		}
+
+		span {
+			padding: 0 14px;
+		}
+
+		&:before {
+			content: '';
+			width: 21px;
+			height: 21px;
+			box-sizing: content-box;
+			display: inline-block;
+			border: 1px solid #23453a;
+			border-radius: 50%;
+			transition: background-position $ease-out-quad 0.3s;
+			background: url('../assets/svgs/icon_arrow_right_green_no_circle.svg') no-repeat;
+			background-position: -21px 0;
+			background-size: 42px 21px;
+			@include arabic() {
+				transform: scaleX(-1);
+			}
+		}
+
+		&:hover {
+			&:before {
+				background-position: 0px 0;
+			}
+		}
+	}
+}
+
+.descriptionWrapper {
+	margin-top: 10px;
+	overflow: hidden;
+	height: 70px;
+
+	& :global(.text-style-body) {
+		overflow: hidden;
+		display: -webkit-box;
+		text-overflow: ellipsis;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+	}
+}
+
+.toggleIcon {
+	width: 44px;
+	height: 44px;
+	position: relative;
+	margin-left: -11px;
+	margin-top: 9px;
+	margin-bottom: 9px;
+
+	&:before {
+		content: '';
+		width: 22px;
+		height: 2px;
+		background: $color-brand;
+		display: block;
+		position: absolute;
+		left: calc(50% - 11px);
+		top: calc(50% - 1px);
+	}
+
+	&:after {
+		content: '';
+		height: 22px;
+		width: 2px;
+		background: $color-brand;
+		display: block;
+		position: absolute;
+		transition: transform 0.55s $default-ease;
+		will-change: transform;
+		top: calc(50% - 11px);
+		left: calc(50% - 1px);
+	}
+}
+
+.hasSelection {
+	.listWrapper {
+		background: #ffffff;
+	}
+}
+
+.popOver {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+	visibility: block;
+	padding: 35px 15px;
+	overflow: hidden;
+
+	a {
+		font-size: 14px;
+	}
+
+	h3 {
+		font-family: $font-din-next-regular;
+		color: $color-grey;
+	}
+
+	@media (min-width: $media-breakpoint-md) {
+		flex-flow: row;
+		padding: 60px;
+	}
+
+	:local(.title) {
+		margin-top: 0;
+	}
+
+	:local(.detail) {
+		display: block;
+		margin-top: 60px;
+	}
+
+	.popOverBody {
+		font-size: 20px;
+		line-height: 34px;
+		color: $color-grey;
+
+		@media (max-width: $media-breakpoint-sm) {
+			font-size: 18px;
+			line-height: 30px;
+		}
+	}
+
+	&.popOverOpen {
+		transition: opacity 0.35s, transform 0.5s $ease-in-out-custom, visibility 0s 0s;
+		transform: translate3d(0, -1480px, 0px);
+		visibility: visible;
+	}
+
+	.popOverDescription {
+		margin-top: 10px;
+		left: 0px;
+		bottom: 0px;
+		position: absolute;
+		padding: 80px 80px;
+		color: $color-grey;
+
+		@include arabic() {
+			right: 0px;
+			left: auto;
+		}
+
+		@media (max-width: $media-breakpoint-sm) {
+			padding: 40px 40px;
+		}
+	}
+
+	.languageToggleWrapper {
+		position: absolute;
+		right: 60px;
+		top: 27px;
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		@include arabic() {
+			left: 60px;
+			right: auto;
+		}
+
+		@media (max-width: $media-breakpoint-sm) {
+			top: 37px;
+		}
+
+		a {
+			color: $color-green !important;
+		}
+
+		& > div {
+			display: inline !important;
+		}
+	}
+
+	.closeIcon {
+		position: absolute;
+		top: 30px;
+		cursor: pointer;
+		padding: 10px;
+		right: 20px;
+		@media (min-width: $media-breakpoint-md) {
+			top: 20px;
+		}
+
+		@include arabic() {
+			left: 20px;
+			right: auto;
+		}
+	}
+
+	.popOverTitleDetail {
+		min-width: 184px;
+		margin-right: 40px;
+		display: flex;
+		flex-flow: column;
+		@media (min-width: $media-breakpoint-md) {
+			:local(.detail) {
+				order: -1;
+				margin-top: 0;
+			}
+		}
+		@include arabic() {
+			margin-left: 40px;
+			margin-right: 0;
+		}
+	}
+}
+
+html[lang='ar'] {
+	:local(.toggleIcon) {
+	}
+}

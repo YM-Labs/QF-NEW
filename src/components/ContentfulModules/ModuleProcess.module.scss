@@ -1,0 +1,250 @@
+.wrapper {
+	position: relative;
+
+	&:before {
+		background: #FAFAFA;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		content: "";
+		height: 100%;
+		max-width: 1220px;
+		transform: translateX(-50%);
+		z-index: 2;
+	}
+}
+
+.wrapperInner {
+	padding: 38px 0;
+	position: relative;
+	z-index: 5;
+
+	@media (min-width: $media-breakpoint-md) {
+		padding: 100px 0;
+	}
+
+	@media (min-width: $media-breakpoint-lg) {
+		display: flex;
+	}
+}
+
+.titleWrapper {
+	width: 50%;
+    padding-right: 70px;
+
+    @include arabic() {
+		padding-right: unset;
+        padding-left: 70px;
+	}
+
+	@media (min-width: $media-breakpoint-md) {
+		width: 50%;
+	}
+
+    @media (max-width: $media-breakpoint-sm) {
+        padding-right: 0px;
+	}
+}
+
+.withForm {
+	.titleWrapper {
+		width: 100%;
+
+		@media (min-width: $media-breakpoint-md) {
+			width: 50%;
+		}
+	}
+}
+
+.title {
+	font-size: 20px;
+	font-family: $font-din-next-regular;
+	color: $color-black-alt;
+	line-height: 1.2em;
+	max-width: 260px;
+	margin-bottom: 30px;
+
+	@media (min-width: $media-breakpoint-md) {
+		font-size: 30px;
+	}
+
+	@include arabic() {
+		font-family: inherit;
+	}
+}
+
+.processSteps {
+	list-style: none;
+	counter-reset: step;
+	border-left: 1px solid #D8D8D8;
+	width: calc(100% - 18px);
+	margin-left: auto;
+
+	@include arabic() {
+		border-left: 0;
+		border-right: 1px solid #D8D8D8;
+		margin-left: 0;
+		margin-right: auto;
+	}
+
+	@media (min-width: $media-breakpoint-md) {
+		margin-left: 0;
+		width: 100%;
+		padding-right: 60px;
+
+		@include arabic() {
+			padding-right: 0;
+			padding-left: 60px;
+		}
+	}
+
+	@media (min-width: $media-breakpoint-lg) {
+		width: 50%;
+		padding-right: 0;
+	}
+
+    @media (max-width: $media-breakpoint-sm) {
+        margin-top: 70px;
+	}
+}
+
+.processStep {
+	padding-left: 50px;
+	position: relative;
+	margin-bottom: 60px;
+	@include arabic() {
+		padding-left: 0;
+		padding-right: 50px;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&:not(.isSubStep) {
+		counter-increment: step;
+
+		&:before {
+			position: absolute;
+			top: -11px;
+			left: -18px;
+			content: counter(step, decimal-leading-zero);
+			font-size: 14px;
+			color: #E14626;
+			height: 36px;
+			width: 36px;
+			border: 1px solid #D8D8D8;
+			border-radius: 50%;
+			display: flex;
+			padding: 11px 9px;
+			background: #FAFAFA;
+			font-family: $font-din-next-medium;
+			@include arabic() {
+				left: auto;
+				right: -18px;
+			}
+
+			@media (min-width: $media-breakpoint-md) {
+				font-size: 18px;
+				height: 44px;
+				width: 44px;
+				padding: 13px 11px;
+				left: -22px;
+				@include arabic() {
+					left: auto;
+					right: -22px;
+				}
+			}
+		}
+	}
+
+	&.isSubStep {
+		margin-bottom: 40px;
+
+		&:before {
+			position: absolute;
+			content: "";
+			height: 7px;
+			width: 7px;
+			background-color: #E14626;
+			border-radius: 50%;
+			left: -4px;
+			top: 8px;
+			@include arabic() {
+				left: auto;
+				right: -4px;
+			}
+		}
+	}
+}
+
+.stepHeadline {
+	font-size: 14px;
+	line-height: 1.2em;
+	color: $color-black;
+	font-family: $font-din-next-medium;
+	margin-bottom: 10px;
+
+	@media (min-width: $media-breakpoint-md) {
+		font-size: 18px;
+	}
+	@include arabic() {
+		font-family: $font-arabic-din-next-medium;
+	}
+}
+
+.stepText {
+	font-size: 14px;
+	line-height: 1.2em;
+	color: $color-grey;
+	font-family: $font-din-next-regular;
+
+	@media (min-width: $media-breakpoint-md) {
+		font-size: 18px;
+	}
+	@include arabic() {
+		font-family: $font-arabic-din-next-regular;
+	}
+}
+
+html[lang='ar'] {}
+
+body:global(.dark-mode) {
+
+	.wrapper:before {
+		background: #1C1F21;
+	}
+
+	.title {
+		color: $color-white-alt;
+	}
+
+	.processSteps {
+		border-color: $color-grey-1;
+	}
+
+
+	.processStep {
+		&:not(.isSubStep) {
+			&:before {
+				color: #6BCDB2;
+				border-color: $color-grey-1;
+				background: #1C1F21;
+			}
+		}
+		&.isSubStep {
+			&:before {
+				background-color: #6BCDB2;
+			}
+		}
+	}
+
+	.stepHeadline {
+		color: $color-white-alt;
+	}
+
+	.stepText {
+		color: $color-grey-2;
+	}
+}

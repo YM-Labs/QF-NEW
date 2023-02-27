@@ -1,0 +1,114 @@
+.wrapper {
+	display: none;
+	font-size: 16px;
+	@media (max-width: $media-breakpoint-sm) {
+		display: flex;
+        padding-left: 15px;
+
+        @include arabic() {
+            padding-left: unset;
+            padding-right: 15px;
+		}
+        font-size: 14px;
+	}
+	flex-flow: row;
+	align-items: center;
+	color: $color-green;
+	width: 100%;
+	max-width: $max-page-width;
+	margin: 0 auto;
+    margin-top: 75px;
+	@media (min-width: $media-breakpoint-md) {
+		padding-right: 140px !important;
+		@include arabic() {
+			padding-right: 80px !important;
+			padding-left: 140px !important;
+		}
+	}
+	@media (min-width: $max-page-width) {
+		padding-left: 280px !important;
+		padding-right: 280px !important;
+	}
+	transition: opacity 0.25s 0.4s, visibility 0s 0.4s;
+	flex: 1;
+	min-width: 0; /* or some value */
+	* {
+		&:not(:first-child) {
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+			white-space: nowrap;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				width: 5px;
+				position: relative;
+				top: 2px;
+				height: 7px;
+				margin-left: 15px;
+				margin-right: 15px;
+				background-image: url('../assets/svgs/icon_breadcrumb_seperator.svg');
+				background-repeat: no-repeat;
+				@include arabic() {
+					transform: scaleX(-1);
+				}
+			}
+		}
+	}
+	& > * {
+		padding-bottom: 4px;
+		margin-bottom: -4px;
+	}
+	& > :last-child {
+		&:before {
+			top: -2px;
+		}
+		white-space: nowrap;
+		overflow: hidden;
+		display: inline-block;
+		text-overflow: ellipsis;
+	}
+
+	&:global(.hidden) {
+		transition: opacity 0.25s, visibility 0s 0.25s;
+		pointer-events: none;
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
+body:global(.dark-mode) {
+	.wrapper {
+		color: $color-white-alt;
+		* {
+			&:not(:first-child) {
+				&:before {
+					background-image: url('../assets/svgs/icon_breadcrumb_seperator-white.svg');
+					background-repeat: no-repeat;
+				}
+			}
+		}
+		a {
+			color: $color-white-alt;
+		}
+	}
+}
+:global(html.tap-story) {
+	:local {
+		.wrapper {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+}
+
+:global(.ecss-single #breadcrumb),
+:global(.page-ecss #breadcrumb)
+{
+    a {
+        @media (max-width: $media-breakpoint-sm) {
+            color: $color-white !important;
+        }
+    }
+}

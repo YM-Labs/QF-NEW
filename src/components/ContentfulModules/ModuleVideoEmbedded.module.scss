@@ -1,0 +1,14 @@
+.wrapper {
+	width: 100%;
+}
+.aspectWrapper {
+	width: 100%;
+	@include aspect-ratio(16, 9);
+	video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}

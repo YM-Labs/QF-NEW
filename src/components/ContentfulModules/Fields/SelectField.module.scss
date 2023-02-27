@@ -1,0 +1,58 @@
+.wrapper {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+
+    @include arabic() {
+        margin-right: unset;
+        margin-left: 20px;
+    }
+
+    @media (max-width: $media-breakpoint-sm) {
+        grid-column: span 2;
+        margin-right: unset;
+
+        @include arabic() {
+            margin-left: unset;
+        }
+	}
+
+    .listView {
+        .column {
+            width: 33.33%;
+            float: left;
+            margin-bottom: 5px;
+
+            @media (max-width: $media-breakpoint-sm) {
+                width: 100%;
+            }
+
+            @include arabic() {
+                float: right;
+            }
+
+            label {
+                color: $color-brand;
+                &:before {
+                    border-color: $color-grey-2;
+                }
+            }
+        }
+    }
+}
+
+.fullWidth {
+    grid-column: span 2;
+}
+
+body:global(.dark-mode) {
+    .wrapper {
+        .listView {
+            .column {
+                label {
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}

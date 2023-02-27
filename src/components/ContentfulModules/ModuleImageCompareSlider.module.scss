@@ -1,0 +1,104 @@
+.wrapper {
+	text-align: center;
+	cursor: ew-resize;
+
+	.img_comparison_slider {
+		--handle-size: 100px;
+		--handle-opacity: 1;
+		--divider-width: 2px;
+		--divider-color: #fff;
+		--handle-opacity-active: 1;
+		direction: ltr !important;
+	
+		img {
+			max-height: 100vh;
+			z-index: -1;
+		}
+	
+		.__rcs_handle_button {
+			color: #ffffff;
+			margin-left: 0px;
+			margin-top: 28px;
+			display: grid;
+			grid-auto-flow: column;
+			gap: 8px;
+			place-content: center;
+			flex-shrink: 0;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border-style: solid;
+			border-width: 2px;
+			pointer-events: auto;
+			backdrop-filter: blur(7px);
+			box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 7px;
+	
+			.__rcs_handle_icon_left {
+				width: 0px;
+				height: 0px;
+				border-top: 8px solid transparent;
+				border-right: 10px solid;
+				border-bottom: 8px solid transparent;
+			}
+	
+			.__rcs_handle_icon_right {
+				width: 0px;
+				height: 0px;
+				border-top: 8px solid transparent;
+				border-right: 10px solid;
+				border-bottom: 8px solid transparent;
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	.caption {
+		width: 100%;
+		position: static;
+		@media (min-width: $media-breakpoint-md) {
+			padding-left: percentage(math.div(1, 12));
+			padding-right: percentage(math.div(1, 12));
+			margin-left: 20px;
+		}
+		@media (min-width: $media-breakpoint-xl) {
+			padding-left: percentage(math.div(2, 12));
+			padding-right: percentage(math.div(2, 12));
+			margin-left: 20px;
+			width: 75%;
+		}
+		font-size: 15px;
+		line-height: 19px;
+		padding-top: 20px;
+		color: $color-grey-6;
+		font-family: $font-din-next-regular;
+		text-align: left;
+	
+		span {
+			padding-left: 3px;
+			font-size: 14px;
+			color: $color-grey-6;
+		}
+	
+		@include arabic() {
+			font-family: $font-arabic-din-next-regular;
+			text-align: right;
+			span {
+				padding-left: unset;
+				padding-right: 5px;
+			}
+	
+			@media (min-width: $media-breakpoint-md) {
+				margin-left: unset;
+				margin-right: 20px;
+			}
+			@media (min-width: $media-breakpoint-xl) {
+				margin-left: unset;
+				margin-right: 20px;
+			}
+		}
+		& * {
+			max-width: 100%;
+			display: inline;
+		}
+	}
+}

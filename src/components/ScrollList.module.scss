@@ -1,0 +1,156 @@
+.draggableWrapper {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: nowrap;
+	width: 100%;
+	overflow: visible;
+
+	& > a,
+	> div {
+		display: inline-block;
+		flex-shrink: 0;
+		width: calc(100% - 45px);
+		padding-left: 15px;
+		max-width: none;
+
+		@media (min-width: $media-breakpoint-md) {
+			padding-left: 0;
+			width: calc((440 / 1120) * 100% + 35px);
+			padding-right: 35px;
+		}
+		@media (min-width: $media-breakpoint-lg) {
+			width: calc((440 / 1120) * 100% + 75px);
+			padding-right: 75px;
+		}
+		overflow: visible;
+		text-decoration: none !important;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		:global(.gatsby-image-outer-wrapper) {
+			overflow: hidden;
+			:global(.gatsby-image-wrapper) {
+				will-change: transform;
+				transition: transform $ease-out-quad 0.5s;
+			}
+		}
+		&:hover {
+			:global(.gatsby-image-wrapper) {
+				transform: scale(1.07);
+			}
+			text-decoration: none;
+		}
+	}
+
+	@include arabic() {
+		& > a,
+		> div {
+			padding-left: 0px;
+			padding-right: 15px !important;
+
+			&:last-child {
+				margin-left: 0;
+			}
+
+			@media (min-width: $media-breakpoint-md) {
+				padding-left: 35px;
+				padding-right: 0 !important;
+			}
+			@media (min-width: $media-breakpoint-lg) {
+				padding-left: 75px;
+				padding-right: 0px !important;
+			}
+		}
+	}
+}
+.listWrapper {
+	margin-left: -15px;
+	margin-right: -15px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-right: 0;
+		margin-left: 0;
+	}
+	overflow: hidden;
+	@media (min-width: $media-breakpoint-md) {
+		overflow: visible;
+	}
+}
+
+.controlsInactiveDesktop {
+	@media (min-width: $media-breakpoint-md) {
+		.controls {
+			pointer-events: none;
+
+			a {
+				opacity: 0.2 !important;
+			}
+		}
+	}
+}
+
+.controls {
+	margin-bottom: 20px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 0;
+		margin-bottom: 40px;
+	}
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-end;
+	align-items: center;
+
+	&.hasPagination {
+		justify-content: space-between;
+	}
+	.pagination {
+		font-size: 16px;
+	}
+	.arrows {
+		display: flex;
+		flex-flow: row;
+
+		a {
+			background: url('../assets/svgs/icon_arrow_right_green.svg') no-repeat;
+			width: 31px;
+			height: 31px;
+			display: inline-block;
+			opacity: 0.5;
+			transition: opacity 0.2s;
+
+			&.active {
+				opacity: 1;
+			}
+
+			&.prevButton {
+				margin-right: 10px;
+				transform: scaleX(-1);
+			}
+
+			@include arabic() {
+				transform: scaleX(-1);
+				&.prevButton {
+					margin-right: 0px;
+					margin-left: 10px;
+					transform: none;
+				}
+			}
+		}
+	}
+}
+:global(.highlightedScroller) {
+	.pagination {
+		opacity: 0;
+	}
+}
+
+body:global(.dark-mode) {
+	.controls {
+		.arrows {
+			a {
+				background: url('../assets/svgs/icon_arrow_right_white.svg') no-repeat;
+			}
+		}
+	}
+}

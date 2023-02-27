@@ -1,0 +1,178 @@
+.countBox {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    background-color: $colorDarkGreen;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-top: 70px;
+
+    [data-gatsby-image-wrapper] {
+        display: inherit !important;
+        background-color: transparent !important;
+        
+        img {
+            @media (max-width: $media-breakpoint-sm) {
+                height: 60px;
+
+                @include arabic() {
+                    height: 55px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: $media-breakpoint-sm) {
+        padding: 20px;
+        padding-top: 10px;
+        margin-top: 100px;
+        width: 100%;
+        left: 50%;
+        right: unset;
+        transform: translateX(-50%);
+
+        @include arabic() {
+            padding: 10px;
+            padding-top: 5px;
+            padding-bottom: 15px;
+            width: 100%;
+            margin-top: 140px;
+            right: 50%;
+            left: unset;
+            transform: translateX(50%);
+        }
+    }
+
+    .logo {
+        position: absolute;
+        top: 20px;
+        width: 90px;
+
+        @media (max-width: $media-breakpoint-sm) {
+            top: 10px;
+            left: 15px;
+            width: 60px;
+
+            @include arabic() {
+                left: unset;
+                right: 15px;
+                width: 55px;
+            }
+        }
+    }
+
+    span {
+        @media (max-width: $media-breakpoint-sm) {
+            padding: 0px;
+            position: absolute;
+        }
+    }
+
+    .kickoffText {
+        font-size: 24px;
+        max-width: 100px;
+        margin: auto 0;
+        text-align: left;
+        margin-right: 40px;
+        margin-left: 130px;
+
+        @media (max-width: $media-breakpoint-sm) {
+            font-size: 16px;
+            top: 15px;
+            max-width: unset;
+            display: none;
+        }
+
+        @include arabic() {
+            text-align: right;
+            margin-right: 130px;
+            margin-left: 0px;
+            max-width: 120px;
+        }
+    }
+
+    .label {
+        text-align: center;
+        font-size: 16px;
+        padding-top: 5px;
+
+        @media (max-width: $media-breakpoint-sm) {
+            font-size: 14px;
+        }
+    }
+
+    .countBoxItem {
+        margin: auto 0;
+        margin-left: 30px;
+
+        @include arabic() {
+            margin-left: unset;
+            margin-right: 30px;
+        }
+
+        @media (max-width: $media-breakpoint-sm) {
+            margin-left: 15px;
+
+            @include arabic() {
+                margin-right: 18px;
+                margin-left: unset;
+            }
+        }
+
+        &:nth-child(2) {
+            @media (max-width: $media-breakpoint-sm) {
+                margin-left: 0px;
+            }
+        }
+        
+        .count {
+            text-align: center;
+            font-size: 60px;
+            color: $color-white;
+            padding-bottom: 10px;
+
+            @media (max-width: $media-breakpoint-sm) {
+                font-size: 34px;
+                padding-bottom: 0px;
+            }
+
+            &:before{
+                content: ":";
+                position: relative;
+                left: -18px;
+                opacity: 0.5;
+
+                @include arabic() {
+                    left: unset;
+                    right: -18px;
+                }
+
+                @media (max-width: $media-breakpoint-sm) {
+                    left: -12px;
+
+                    @include arabic() {
+                        left: unset;
+                        right: -12px;
+                    }
+                }
+            }
+        }
+
+        &.firstCount{
+            @media (max-width: $media-breakpoint-sm) {
+                margin-left: 70px;
+
+                @include arabic() {
+                    margin-left: unset;
+                    margin-right: 80px;
+                }
+            }
+            .count {
+              &:before{
+                display: none;
+              }
+            }
+        }
+    }
+}

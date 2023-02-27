@@ -1,0 +1,174 @@
+.wrapper {
+}
+
+.listWrapper {
+	display: flex;
+  	flex-wrap: wrap;
+}
+
+.listItem {
+	flex: 1;
+  	min-width: 50%;
+	padding-left: 30px;
+	margin-top: 90px;
+	  
+	a {
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		justify-content: space-between;
+		text-decoration: none;
+		padding: 17px 0;
+		text-decoration: none;
+	}
+}
+
+.listWrapper .listItem:nth-child(2n+1) {
+	padding-left: unset;
+	padding-right: 30px;
+}
+
+.listWrapper .listItem:nth-child(1), .listWrapper .listItem:nth-child(2) {
+	margin-top: unset;
+}
+
+.title {
+	display: block;
+	color: $color-black;
+	padding-right: 10px;
+	padding-top: 30px;
+	padding-bottom: 15px;
+	font-family: $font-din-next-medium;
+	@include arabic() {
+		font-family: $font-arabic-din-next-medium;
+		padding-right: 0px;
+		padding-left: 10px;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+
+	.description {
+		display: inline-block;
+		color: $color-grey-1;
+	}
+}
+
+.fileSize {
+	display: flex;
+	flex-flow: row;
+	color: $color-grey-2;
+	width: 25%;
+	min-width: 110px;
+	justify-content: space-between;
+	align-items: center;
+
+	&:after {
+		content: '';
+		display: block;
+		background: url('../../assets/svgs/icon_download.svg') no-repeat;
+		width: 31px;
+		height: 31px;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	@include arabic() {
+		flex-flow: row-reverse;
+		direction: ltr;
+	}
+}
+
+.Goto {
+	display: flex;
+	flex-flow: row;
+	color: $color-grey-2;
+	width: 25%;
+	min-width: 110px;
+	justify-content: flex-end;
+	align-items: center;
+
+	&:after {
+		content: '';
+		display: block;
+		background: url('../../assets/svgs/icon_link_up.svg') no-repeat;
+		width: 31px;
+		height: 31px;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	@include arabic() {
+		flex-flow: row-reverse;
+		direction: ltr;
+	}
+}
+
+:global(.ModuleMediaList-module--Mail--1hw8s:after) {
+		fill: red;
+	
+}
+
+.Mail {
+	display: flex;
+	flex-flow: row;
+	color: $color-grey-2;
+	width: 25%;
+	min-width: 110px;
+	justify-content: flex-end;
+	align-items: center;
+
+	&:after {
+		content: '';
+		display: block;
+		background: url('../../assets/svgs/icon-email.svg') no-repeat center;
+		border: 1px solid $color-brand;
+		border-radius: 30px;
+		width: 31px;
+		height: 31px;
+		pointer-events: none;
+		user-select: none;
+		background-size: 16px 16px
+	}
+
+	@include arabic() {
+		flex-flow: row-reverse;
+		direction: ltr;
+	}
+}
+
+.Link {
+	display: flex;
+	flex-flow: row;
+	color: $color-grey-2;
+	width: 25%;
+	min-width: 110px;
+	justify-content: flex-end;
+	align-items: center;
+
+	&:after {
+		content: '';
+		display: block;
+		background: url('../../assets/svgs/icon_arrow_right_green.svg') no-repeat;
+		width: 31px;
+		height: 31px;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	@include arabic() {
+		flex-flow: row-reverse;
+		direction: ltr;
+	}
+}
+
+body:global(.dark-mode) {
+	.title {
+		color: $color-white;
+	}
+	.fileSize {
+		&:after {
+			background: url('../../assets/svgs/icon_download-yellow.svg') no-repeat;
+		}
+	}
+}

@@ -1,0 +1,134 @@
+.imageWrapper {
+	background-color: $color-grey-3;
+	width: 100%;
+}
+
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	padding-top: 40px;
+
+	@media (max-width: $media-breakpoint-md) {
+		display: block;
+		padding-top: 0px;
+	}
+}
+
+.padding {
+	padding: 20px $padding-xs;
+	@media (min-width: $media-breakpoint-md) {
+		padding: 21px percentage(math.div(1, 12));
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		padding: 0px 0px 30px 0px;
+	}
+	/*	@media (min-width: $max-page-width) {
+		padding-left: 280px !important;
+		padding-right: 280px !important;
+	}*/
+}
+
+.innerWrapper {
+	max-width: $max-page-width;
+	margin: 0 auto;
+	composes: padding;
+}
+
+.bgGrey {
+	background-color: $color-grey-3;
+}
+
+.textWrapper {
+	flex-shrink: 0;
+	width: calc(30% - 15px);
+	margin-top: 20px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 0px;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		width: calc(30% - 20px);
+	}
+	@media (max-width: $media-breakpoint-md) {
+		width: 100%;
+	}
+}
+
+.detailsWrapper {
+	flex-shrink: 0;
+	width: calc(70% - 15px);
+	margin-top: 20px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 0px;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		width: calc(70% - 20px);
+	}
+
+	@media (max-width: $media-breakpoint-md) {
+		width: 100%;
+	}
+}
+
+.ctaLink {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	padding: 15px 0;
+	margin-top: 40px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 0px;
+	}
+	span {
+		margin-top: -2px;
+		padding: 0 14px;
+	}
+
+	&:before {
+		content: '';
+		display: block;
+		width: 31px;
+		flex-shrink: 0;
+		height: 31px;
+		pointer-events: none;
+		user-select: none;
+		border: 1px solid #23453a;
+		box-sizing: content-box;
+		margin-right: 15px;
+		border-radius: 50%;
+		transition: background-position $ease-out-quad 0.3s;
+		background: url('../../assets/svgs/icon_arrow_right_green_no_circle.svg') no-repeat;
+		background-position: -31px 0;
+		background-size: 62px 31px;
+		@include arabic() {
+			transform: scaleX(-1);
+			margin-right: 0;
+			margin-left: 15px;
+		}
+	}
+	&:hover {
+		&:before {
+			background-position: 0px 0;
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.bgGrey {
+		background-color: $color-dark-1;
+	}
+	.ctaLink {
+		&:before {
+			border: 1px solid $color-white;
+			background: url('../../assets/svgs/icon_arrow_right_white_no_circle.svg') no-repeat;
+			background-position: -31px 0;
+			background-size: 62px 31px;
+		}
+		&:hover {
+			&:before {
+				background-position: 0px 0;
+			}
+		}
+	}
+}

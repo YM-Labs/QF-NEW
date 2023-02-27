@@ -1,0 +1,15 @@
+.wrapper {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    position: relative;
+    margin-top: 30px;
+    grid-column: span 2;
+
+    @include arabic() {
+        margin-right: unset;
+        margin-left: 20px;
+    }
+}

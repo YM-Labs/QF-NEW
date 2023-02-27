@@ -1,0 +1,124 @@
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	@media (min-width: $media-breakpoint-md) {
+		flex-flow: row;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+}
+
+.titleDetailWrapper {
+	display: flex;
+	flex-flow: row;
+	margin-top: 30px;
+	@media (min-width: $media-breakpoint-md) {
+		flex-flow: column;
+		margin-top: 0;
+	}
+}
+
+.textWrapper {
+	color: $color-grey;
+	@media (min-width: $media-breakpoint-md) {
+		width: calc(50% - 30px);
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		width: calc(50% - 60px);
+	}
+}
+
+.imageWrapper {
+	flex-shrink: 0;
+	width: 100%;
+	margin-top: 20px;
+	order: -1;
+	@media (min-width: $media-breakpoint-md) {
+		order: inherit;
+		margin-top: 0px;
+		width: 50%;
+	}
+}
+
+.mobileImage {
+	@media (min-width: $media-breakpoint-xl) {
+		display: none;
+	}
+}
+
+.desktopImage {
+	display: none;
+	@media (min-width: $media-breakpoint-xl) {
+		display: block;
+	}
+}
+
+.odd {
+	@media (min-width: $media-breakpoint-md) {
+		flex-direction: row-reverse;
+	}
+}
+
+.title {
+	font-family: $font-din-next-medium;
+	@include arabic() {
+		font-family: $font-arabic-din-next-medium;
+	}
+	color: $color-black;
+	margin-top: 8px;
+	padding-left: 17px;
+	@media (min-width: $media-breakpoint-md) {
+		padding-left: 0px;
+		margin-top: 8px;
+	}
+}
+
+.body {
+	margin-top: 26px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 16px;
+	}
+	p:not(:last-child) {
+		margin-bottom: 1em;
+	}
+}
+
+.ctaLink {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	&:before {
+		content: '';
+		display: block;
+		background: url('../../assets/svgs/icon_link_up.svg') no-repeat center center;
+		width: 31px;
+		height: 31px;
+		margin-right: 13px;
+		pointer-events: none;
+		user-select: none;
+		@include arabic() {
+			margin-right: 0px;
+			margin-left: 13px;
+			transform: scaleX(-1);
+		}
+	}
+	margin-top: 33px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 20px;
+	}
+}
+
+body:global(.dark-mode) {
+	.title {
+		color: $color-white;
+	}
+	.textWrapper {
+		color: $color-grey-6;
+	}
+	.ctaLink {
+		&:before {
+			background: url('../../assets/svgs/icon_link_up_white.svg') no-repeat center center;
+		}
+	}
+}

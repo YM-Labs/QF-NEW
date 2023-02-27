@@ -1,0 +1,6 @@
+.wrapper {
+	padding-top: 40px;
+	@media (min-width: $media-breakpoint-md) {
+		padding-top: 0;
+	}
+}

@@ -1,0 +1,273 @@
+@mixin quoteMark() {
+	&:before {
+		content: '“';
+		font-size: 88px;
+		color: $color-red;
+		font-family: $font-pf-din-next-regular;
+		overflow: hidden;
+		height: 26px;
+		display: block;
+		line-height: 88px;
+
+		@media (min-width: $media-breakpoint-md) {
+			margin-bottom: 22px;
+			height: 43px;
+			font-size: 156px;
+			line-height: 156px;
+		}
+
+		@include arabic() {
+			transform: scaleX(-1) scaleY(-1);
+		}
+	}
+}
+
+.wrapper {
+	position: relative;
+	z-index: 0;
+
+	&:before {
+		background: #FAFAFA;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		content: "";
+		height: 100%;
+		max-width: 1220px;
+		transform: translateX(-50%);
+		z-index: 1;
+
+		@media (min-width: $media-breakpoint-xxl) {
+			max-width: 1440px;
+		}
+	}
+
+	@media (min-width: $media-breakpoint-md) {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+	}
+
+	.inner {
+		position: relative;
+		z-index: 4;
+		width: 100%;
+		padding: 30px 0 0px;
+		display: flex;
+		flex-direction: column-reverse;
+
+		@media (min-width: $media-breakpoint-md) {
+			align-items: flex-end;
+			flex-direction: row;
+			padding: 86px 0 74px;
+		}
+	}
+
+	.quotesAuthorsList {
+		position: relative;
+		z-index: 4;
+		width: 100%;
+		list-style: none;
+		counter-reset: section;
+		flex-shrink: 0;
+
+		@media (min-width: $media-breakpoint-md) {
+			width: percentage(5*0.1);
+			padding-right: 28px;
+
+			@include arabic() {
+				padding-right: 0;
+				padding-left: 28px;
+			}
+		}
+	}
+
+	.quotesAuthor {
+		position: relative;
+		counter-increment: section;
+		padding: 14px 32px 24px 70px;
+		cursor: pointer;
+
+		@include arabic() {
+			padding: 14px 70px 24px 32px;
+		}
+
+		&:before {
+			content: counter(section, decimal-leading-zero);
+			font-family: $font-din-next-light;
+			color: #E14626;
+			font-size: 28px;
+			position: absolute;
+			top: 14px;
+			left: 0;
+			z-index: 4;
+
+			@media (min-width: $media-breakpoint-md) {
+				font-size: 35px;
+			}
+
+			@include arabic() {
+				right: 0;
+				left: auto;
+			}
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -15px;
+			right: -15px;
+			width: calc(100% + 30px);
+			height: 100%;
+			background: #E9E9E9;
+			opacity: 0;
+			z-index: 2;
+			transition: opacity 0.2s;
+
+			@media (min-width: $media-breakpoint-md) {
+				left: -20px;
+				right: auto;
+				width: calc(100% + 20px);
+			}
+		}
+
+		opacity: 0.3;
+		transition: opacity 0.2s;
+		&.isActive {
+			opacity: 1 !important;
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		@media (min-width: $media-breakpoint-md) {
+			&:hover {
+				opacity: 1;
+				&:after {
+					//opacity: 1;
+				}
+			}
+		}
+	}
+
+	.authorName {
+		font-size: 16px;
+		font-family: $font-din-next-medium;
+		color: #0F362A;
+		line-height: 1.375em;
+		margin-bottom: 4px;
+		position: relative;
+		z-index: 4;
+	}
+
+	.authorTitle {
+		font-size: 14px;
+		color: #0F362A;
+		font-family: $font-din-next-regular;
+		line-height: 1.285em;
+		max-width: 270px;
+		position: relative;
+		z-index: 4;
+	}
+
+	.quoteList {
+		width: 100%;
+		position: relative;
+		padding-bottom: 30px;
+
+		@media (min-width: $media-breakpoint-md) {
+			width: percentage(5*0.1);
+			padding-left: 28px;
+			padding-bottom: 0px;
+
+			@include arabic() {
+				padding-left: 0;
+				padding-right: 28px;
+			}
+		}
+	}
+
+	.quotesWrapper {
+		position: relative;
+		transition: height .2s linear;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+
+		@include arabic() {
+			align-items: flex-start;
+		}
+	}
+
+	.quote {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding-top: 30px;
+		opacity: 0;
+		box-sizing: border-box;
+		transition: opacity 0.2s;
+		@include quoteMark();
+
+		&.isActive {
+			opacity: 1;
+		}
+
+		@media (min-width: $media-breakpoint-md) {
+			padding-top: 60px;
+		}
+		@media (max-width: $media-breakpoint-md) {
+			font-size: 20px;
+			line-height: 26px;
+		}
+	}
+
+	.authorWrapper {
+		margin-top: 20px;
+	}
+}
+
+
+.quoteWrapper {
+	@media (max-width: $media-breakpoint-md - 1px) {
+		@include quoteMark();
+	}
+}
+
+body:global(.dark-mode) {
+	.wrapper {
+		&:before {
+			background: rgba($color-white, 0.1);
+		}
+	}
+
+	.quotesWrapper {
+		&:before {
+			color: $color-yellow;
+		}
+	}
+
+	.quotesAuthor {
+		.authorName,
+		.authorTitle {
+			color: $color-white;
+		}
+
+		&:before {
+			color: $color-yellow;
+		}
+
+		&:after {
+			background: rgba($color-white, 0.1);
+		}
+	}
+
+	.quote {
+		color: $color-white;
+		&:before {
+			color: $color-yellow;
+		}
+	}
+}

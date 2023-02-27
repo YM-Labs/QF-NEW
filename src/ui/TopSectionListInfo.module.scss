@@ -1,0 +1,61 @@
+.label {
+	font-family: $font-din-next-medium;
+	@include arabic() {
+		font-family: $font-arabic-din-next-medium;
+	}
+	width: 115px;
+	flex-shrink: 0;
+}
+.labelMenu {
+    width: 75px;
+}
+.value {
+	color: $color-grey;
+	white-space: pre-line;
+}
+.list {
+	display: flex;
+	flex-flow: column;
+	list-style: none;
+	width: 100%;
+	margin-top: 25px;
+	@media (min-width: $media-breakpoint-md) {
+		width: auto;
+		max-width: calc(40% - 30px);
+		margin-top: 0;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		max-width: calc(50% - 30px);
+	}
+
+	li {
+		opacity: 1;
+		transform: translate3d(0px, 0, 0);
+        
+        a {
+            background-color: transparent !important;
+        }
+
+		@include arabic() {
+			transform: translate3d(-20px, 0, 0);
+		}
+	}
+}
+
+.listItem {
+	display: flex;
+	flex-flow: row;
+	a {
+		@include breakWord();
+		text-decoration: underline;
+	}
+	&:not(:last-child) {
+		margin-bottom: 1em;
+	}
+}
+
+body:global(.dark-mode) {
+	.value {
+		color: $color-grey-2;
+	}
+}

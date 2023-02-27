@@ -1,0 +1,137 @@
+.wrapper {}
+
+.wrapperInner {
+	position: relative;
+
+	@media (min-width: $media-breakpoint-lg) {
+		padding: 0 14% 0 24%;
+
+		@include arabic() {
+			padding: 0 24% 0 14%;
+		}
+	}
+}
+
+.listTitle {
+	font-size: 16px;
+	color: #000000;
+	font-family: $font-din-next-medium;
+	line-height: 1.4em;
+	padding-right: 40px;
+	margin-bottom: 20px;
+	@include arabic() {
+		padding-right: 0;
+		padding-left: 40px;
+	}
+
+	@media (min-width: $media-breakpoint-md) {
+		margin-bottom: 40px;
+		font-size: 20px;
+	}
+
+	@media (min-width: $media-breakpoint-lg) {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 24%;
+		@include arabic() {
+			right: 0;
+			left: auto;
+		}
+	}
+}
+
+.listItem {
+	font-size: 16px;
+	font-family: $font-din-next-regular;
+	list-style: none;
+	border-top: 1px solid #BEBCBC;
+	color: #000000;
+	padding: 18px 10px 22px 0;
+	line-height: 1.4em;
+	@media (min-width: $media-breakpoint-md) {
+		font-size: 20px;
+		padding: 25px 25px 25px 0;
+	}
+    @include arabic() {
+        font-family: $font-arabic-din-next-regular;
+    }
+}
+
+.listWrapper {
+	position: relative;
+}
+
+.withNumbers {
+	@media (min-width: $media-breakpoint-lg) {
+		padding: 0 14%;
+		@include arabic() {
+			padding: 0 14%;
+		}
+	}
+
+	.listWrapper {
+		counter-reset: section;
+	}
+
+	.listTitle {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		font-size: 16px;
+
+		@media (min-width: $media-breakpoint-md) {
+			font-size: 22px;
+		}
+	}
+
+	.listItem {
+		counter-increment: section;
+		padding: 30px 10px 30px 60px;
+		position: relative;
+		@include arabic() {
+			padding: 30px 60px 30px 10px;
+		}
+
+		@media (min-width: $media-breakpoint-md) {
+			padding: 30px 60px;
+		}
+
+		&:before {
+			content: counter(section, decimal-leading-zero);
+			font-family: $font-din-next-regular;
+			color: #E14626;
+			font-size: 28px;
+			position: absolute;
+			top: 34px;
+			left: 0;
+			@include arabic() {
+				left: auto;
+				right: 0;
+			}
+
+			@media (min-width: $media-breakpoint-md) {
+				font-size: 35px;
+			}
+		}
+	}
+}
+
+
+body:global(.dark-mode) {
+	.listTitle {
+		color: $color-white-alt;
+	}
+
+	.listItem {
+		color: $color-grey-2;
+		border-color: $color-grey-1;
+	}
+
+	.withNumbers .listItem {
+		&:before {
+			color: #6BCDB2;
+		}
+	}
+}

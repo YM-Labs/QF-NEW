@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      "gatsby-plugin-page-progress@2.0.16",
+      "/Users/shameerabdulrahman/Documents/GitHub/qatar_foundation"
+    ]
+  ],
+  "_from": "gatsby-plugin-page-progress@2.0.16",
+  "_id": "gatsby-plugin-page-progress@2.0.16",
+  "_inBundle": false,
+  "_integrity": "sha512-1dDUbsvjNCWdh5pammrJaCkCeE4Tk2YLxeh7N7WWHbsJ+BDqpuCxaXb/dw+ph2uVY595kJQXZTxP5hGAsK8SqA==",
+  "_location": "/gatsby-plugin-page-progress",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "gatsby-plugin-page-progress@2.0.16",
+    "name": "gatsby-plugin-page-progress",
+    "escapedName": "gatsby-plugin-page-progress",
+    "rawSpec": "2.0.16",
+    "saveSpec": null,
+    "fetchSpec": "2.0.16"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/gatsby-plugin-page-progress/-/gatsby-plugin-page-progress-2.0.16.tgz",
+  "_spec": "2.0.16",
+  "_where": "/Users/shameerabdulrahman/Documents/GitHub/qatar_foundation",
+  "author": {
+    "name": "Devin Metivier",
+    "email": "devinmetivier@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/dmetivier/gatsby-plugin-page-progress/issues"
+  },
+  "description": "Progress indicator for the top of pages as user scrolls",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@types/node": "^13.7.1",
+    "@typescript-eslint/parser": "^2.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-preset-gatsby-package": "0.2.16",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-devjmetivier": "2.1.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "prettier": "^1.18.2",
+    "typescript": "^3.7.5"
+  },
+  "homepage": "https://github.com/dmetivier/gatsby-plugin-page-progress",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "plugin",
+    "progress",
+    "scroll",
+    "indicator",
+    "bar"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "gatsby-plugin-page-progress",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dmetivier/gatsby-plugin-page-progress.git"
+  },
+  "scripts": {
+    "build": "babel src --out-dir .",
+    "clean": "rm -rf node_modules",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "yarn build",
+    "watch": "babel -w src --out-dir ."
+  },
+  "version": "2.0.16"
+}

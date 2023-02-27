@@ -1,0 +1,113 @@
+.wrapper {
+	padding-top: 40px;
+	padding-bottom: 60px;
+
+	.innerWrapper {
+		max-width: $max-page-width;
+		margin: 0 auto;
+
+		.box {
+			background-color: $color-brand;
+			padding: 60px;
+
+			@media (min-width: $media-breakpoint-md) {
+				padding: 60px 120px 60px 120px;
+			}
+
+			h2 {
+				color: $color-white;
+				padding-bottom: 30px;
+			}
+			p {
+				color: $color-grey-3;
+				padding-bottom: 15px;
+			}
+
+			.ctaLink {
+				display: inline-flex;
+				flex-flow: row !important;
+				align-items: center;
+				color: $color-white;
+				font-size: 14px;
+				margin-top: 30px;
+
+				span {
+					padding-right: 14px;
+					@include arabic() {
+						padding-left: 14px;
+						padding-right: 0;
+					}
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+				text-decoration: none !important;
+
+				&:before {
+					content: '';
+					display: inline-block;
+					width: 21px;
+					height: 21px;
+					border: 1px solid $color-white;
+					box-sizing: content-box;
+					border-radius: 50%;
+					transition: background-position $ease-out-quad 0.3s;
+					background: url('../assets/svgs/icon_arrow_right_white_no_circle.svg') no-repeat;
+					background-position: -21px 0;
+					background-size: 42px 21px;
+					@media (min-width: $media-breakpoint-md) {
+						background-position: -31px 0;
+						background-size: 62px 31px;
+						width: 31px;
+						height: 31px;
+					}
+					margin-right: 15px;
+					@include arabic() {
+						transform: scaleX(-1);
+						margin-left: 15px;
+					}
+				}
+				&:hover {
+					text-decoration: underline !important;
+					&:before {
+						background-position: 0px 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.wrapper {
+		.innerWrapper {
+			.box {
+				background: $color-yellow;
+
+				h2 {
+					color: $color-black-alt;
+				}
+				p {
+					color: $color-black-alt;
+				}
+
+				.ctaLink {
+					color: $color-black-alt;
+
+					&:before {
+						border: 1px solid $color-black-alt;
+						background: url('../assets/svgs/icon_arrow_right_dark_no_circle.svg') no-repeat;
+						background-position: -31px 0;
+						background-size: 62px 31px;
+					}
+					&:hover {
+						text-decoration: underline !important;
+						&:before {
+							background-position: 0px 0;
+						}
+					}
+				}
+			}
+		}
+	}
+} 

@@ -1,0 +1,357 @@
+.logo {
+	display: block;
+	width: 40px;
+	height: 26px;
+	position: absolute;
+	top: 17px;
+	left: 10px;
+    z-index: 1;
+
+    @include arabic() {
+		left: unset;
+        right: 10px;
+	}
+	@media (min-width: $media-breakpoint-md) {
+		left: 0;
+		margin-left: 18px;
+		margin-right: 18px;
+		@include arabic() {
+			left: auto;
+			right: 0;
+		}
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		background-image: url('../assets/svgs/qf_logo.svg');
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		transition: opacity 0.2s;
+		opacity: 1;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		background-image: url('../assets/svgs/qf_logo_white.svg');
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		transition: opacity 0.2s;
+		opacity: 0;
+	}
+}
+
+.fixedWrapper {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	z-index: 0;
+	height: $header-height;
+	pointer-events: none;
+	& > * {
+		pointer-events: all;
+	}
+
+    .accessibilityWidget {
+        position: absolute;
+        right: 170px;
+        top: 18px;
+        z-index: 999999;
+        cursor: pointer;
+        display: none;
+
+        @media (max-width: $media-breakpoint-sm) {
+            right: 45px;
+        }
+
+        @include arabic() {
+            right: unset;
+            left: 188px;
+            top: 10px;
+            align-items: flex-end;
+
+            @media (max-width: $media-breakpoint-sm) {
+                left: 45px;
+                padding-top: 3px;
+            }
+        }
+
+        span {
+            color: $color-brand;
+            padding-right: 7px;
+            font-family: $font-din-next-regular;
+            font-size: 16px;
+
+            @media (max-width: $media-breakpoint-sm) {
+                font-size: 15px;
+                position: relative;
+                top: 2px;
+            }
+
+            @include arabic() {
+                padding-right: unset;
+                padding-left: 7px;
+                font-family: $font-arabic-din-next-regular;
+                position: relative;
+
+                @media (max-width: $media-breakpoint-sm) {
+                    top: unset;
+                }
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .accessibilityIcon {
+            transition: all .2s ease-in-out;
+            transform: scale(1.1);
+            vertical-align: middle;
+            .line {
+                fill: $color-brand;
+            }
+            .circle {
+                stroke: $color-brand;
+            }
+        }
+    }
+
+	.toggleThemeWrapper {
+		position: absolute;
+		right: 145px;
+		top: 18px;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: row;
+		flex-flow: row;
+		-ms-flex-align: center;
+		align-items: center;
+		z-index: 999;
+	}
+}
+
+.wrapper {
+	width: 100%;
+    position: fixed;
+	z-index: 2;
+}
+
+.background {
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: $color-white;
+	height: 60px;
+	border-bottom: 1px solid $color-grey-5;
+	z-index: 0;
+}
+.wcButton {
+    position: absolute;
+	right: 50px;
+	top: 15px;
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+    background-color: $color-red;
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 10px;
+    padding-top: 5px;
+    display: none;
+
+    @media (max-width: $media-breakpoint-sm) {
+        display: block;
+    }
+
+	@include arabic() {
+		left: 50px;
+		right: auto;
+	}
+
+    a {
+        color: $color-white;
+    }
+}
+.languageToggleWrapper {
+	position: absolute;
+	right: 50px;
+	top: 18px;
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	@include arabic() {
+		left: 67px;
+		right: auto;
+	}
+}
+
+:global(html.page-home) {
+	:global(.menu-normal),
+    :global(.bg-white),
+	:global(body.search-open) {
+        :global(.firstItem) {
+            a {
+                color: $color-brand !important;
+
+                svg {
+                    path {
+                        fill: $color-brand !important;
+                    }
+                }
+            }
+        }
+        :local(.fixedWrapper) {
+            background-color: #fff !important;
+        }
+		:local(.logo) {
+			&:before {
+				opacity: 1;
+			}
+
+			&:after {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+:global(html.tap-story) {
+	:local(.logo) {
+		top: 21px;
+		left: 12px;
+
+		@media (min-width:$media-breakpoint-lg) {
+			left: 0;
+		}
+	}
+	:local(.languageToggleWrapper) {
+		top: 22px;
+	}
+}
+
+:global(html[lang="ar"].tap-story) {
+	:local(.logo) {
+		left: auto;
+		right: 12px;
+	}
+}
+
+:global(html.page-home) {
+	:global(.menu-normal),
+	:global(body.search-open) {
+		:local(.logo) {
+			&:before {
+				opacity: 1;
+			}
+
+			&:after {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+:global(html:not(.page-home):not(.tap-story)) {
+	:local(.background) {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+:global(body.menu-normal),
+:global(body.search-open) {
+	:local(.background) {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+body:global(.dark-mode) {
+	.background {
+		background: $color-dark-2;
+		border-bottom: 1px solid $color-dark-1;
+		color: $color-white-alt;
+		height: 65px;
+	}
+	.logo {
+		&:before {
+			background-image: none;
+		}
+		background-image: url('../assets/svgs/qf_logo_white_alt.svg');
+	}
+    .fixedWrapper {
+        .accessibilityWidget {
+            span {
+                color: $color-white-alt;
+            }
+            .accessibilityIcon {
+                .line {
+                    fill: $color-white-alt;
+                }
+                .circle {
+                    stroke: $color-white-alt;
+                }
+            }
+        }
+    }
+}
+
+:global(html.page-home) {
+	:global(.dark-mode.menu-normal),
+    :global(.dark-mode.bg-white),
+	:global(.dark-mode.search-open) {
+        :global(.firstItem) {
+            a {
+                color: $color-white !important;
+
+                svg {
+                    path {
+                        fill: $color-white !important;
+                    }
+                }
+            }
+        }
+        :local(.fixedWrapper) {
+            background-color: $color-dark-2 !important;
+        }
+		:local(.logo) {
+			&:before {
+				opacity: 1;
+			}
+
+			&:after {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+:global(html.tap-story-lightUI) {
+	:local(.logo) {
+		&:before {
+			background-image: none;
+		}
+		background-image: url('../assets/svgs/qf_logo_white.svg');
+	}
+}
+
+:global(html.tap-story-darkUI) {
+	.logo {
+		background-image: none;
+		&:before {
+			background-image: url('../assets/svgs/qf_logo.svg');
+		}
+	}
+}

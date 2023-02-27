@@ -1,0 +1,83 @@
+.wrapper {
+	width: 100%;
+}
+.aspectWrapper {
+	width: 100%;
+	@include aspect-ratio(16, 9);
+	background: $color-black;
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.playButton {
+	position: absolute;
+	top: calc(50% - 26px);
+	left: calc(50% - 26px);
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: $color-white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&:after {
+		content: '';
+		background: url('../../assets/svgs/play_icon.svg') no-repeat center center;
+		width: 12px;
+		height: 13px;
+		display: block;
+		margin-right: -3px;
+	}
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	user-select: none;
+	transition: opacity 0.3s;
+}
+
+.inited {
+	:local(.overlay) {
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+.captionInfo {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: $color-white;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	font-family: $font-din-next-regular;
+	@include arabic() {
+		font-family: $font-arabic-din-next-regular;
+	}
+	font-size: 18px;
+	line-height: 24px;
+
+	@media (min-width: $media-breakpoint-md) {
+		padding-left: 22px;
+		padding-right: 22px;
+		padding-bottom: 18px;
+		font-size: 16px;
+		line-height: 22px;
+	}
+}

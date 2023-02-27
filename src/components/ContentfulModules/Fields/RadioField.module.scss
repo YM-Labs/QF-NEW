@@ -1,0 +1,44 @@
+.wrapper {
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    @media (max-width: $media-breakpoint-sm) {
+        grid-column: span 2;
+	}
+
+    @include arabic() {
+        margin-right: unset;
+        margin-left: 20px;
+    }
+}
+
+:global(.flex) {
+    padding-top: 5px !important;
+    label {
+        display: flex !important;
+
+        @include arabic() {
+            padding-right: 30px;
+        }
+    }
+    span {
+        top: 1px !important;
+        line-height: normal !important;
+    }
+    :global(.bx--checkbox-label) {
+        @include arabic() {
+            &:before {
+                left: unset;
+                right: 0;
+            }
+            &:after {
+                left: unset;
+                right: 0.375rem;
+            }
+        }
+    }
+}
+
+:global(.require) {
+    padding-top: 5px;
+}

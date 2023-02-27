@@ -1,0 +1,79 @@
+.wrapper {
+	position: absolute;
+	right: 118px;
+	z-index: 999;
+
+    @media (max-width: $media-breakpoint-sm) {
+        right: 0;
+    }
+
+	@include arabic() {
+        transform: scaleX(-1);
+		right: unset;
+		left: 132px;
+
+        @media (max-width: $media-breakpoint-sm) {
+			left: 0;
+		}
+	}
+}
+
+:global(.sun_animated) {
+	animation:rotate 0.3s 1;
+}
+
+:global(.moon_animated) {
+	transform: rotate(0deg);
+   -webkit-transform: rotate(0deg);
+   -ms-transform: rotate(0deg);
+   animation-name: rotateMoonIcon;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+}
+
+@keyframes rotateMoonIcon {
+	0% {
+		transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+	}
+	100% {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+}
+
+@-webkit-keyframes rotate {
+    from { -webkit-transform: rotate(24deg) } 
+    to { -webkit-transform: rotate(0deg) } 
+}
+
+:global(html.tap-story) {
+	.wrapper {
+		top: 16px;
+	}
+}
+
+:global(html.tap-story-lightUI) {
+	:local(.wrapper svg) {
+		stroke: $color-white;
+	}
+}
+
+:global(html.tap-story-darkUI) {
+	:local(.wrapper svg) {
+		stroke: $color-brand !important;
+	}
+
+	:local(.wrapper svg g) {
+		fill: $color-brand !important;
+	}
+}
+
+:global(html.hide-darkMode-cta) {
+	.wrapper {
+		opacity: 0;
+		visibility: hidden;
+	}
+}

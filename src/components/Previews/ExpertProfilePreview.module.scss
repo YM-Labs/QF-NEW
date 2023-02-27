@@ -1,0 +1,238 @@
+.wrapper {
+	width: 100%;
+
+	&:hover {
+		.ctaLink {
+			&:before {
+				background-position: 0px 0;
+			}
+		}
+	}
+
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+	border-bottom: 1px solid #efefef;
+	padding-bottom: 35px !important;
+
+	:global(.gatsby-image-outer-wrapper) {
+		width: 40%;
+		max-width: 200px;
+		flex-shrink: 0;
+		overflow: hidden;
+		pointer-events: none;
+
+		img {
+			user-select: none;
+		}
+
+		:global(.gatsby-image-wrapper) {
+			will-change: transform;
+			transition: transform $ease-out-quad 0.5s;
+		}
+	}
+
+	.wrapperItem {
+		width: 100%;
+		display: flex;
+		flex-flow: row;
+	}
+
+	.textWrapperInner {
+		display: flex;
+		max-width: 580px;
+		flex-flow: column;
+	}
+
+	.textWrapper {
+		display: flex;
+		flex-flow: column;
+		padding-left: 15px;
+		width: 100%;
+		@include arabic() {
+			padding-left: 0;
+			padding-right: 15px;
+		}
+		@media (min-width: $media-breakpoint-sm) {
+			padding-left: 50px;
+			@include arabic() {
+				padding-left: 0;
+				padding-right: 50px;
+			}
+		}
+	}
+
+	&:hover {
+		:global(.gatsby-image-wrapper) {
+			transform: scale(1.07);
+		}
+
+		text-decoration: none;
+	}
+
+	& a {
+		display: block;
+		width: 100%;
+		text-decoration: none !important;
+
+		&:hover {
+			text-decoration: none !important;
+		}
+	}
+
+	p {
+		&.description {
+			color: $color-grey-2;
+			display: none;
+			@media (min-width: $media-breakpoint-sm) {
+				display: block;
+			}
+			font-size: 14px;
+			margin-top: 10px;
+			line-height: 18px;
+			height: auto;
+			padding-bottom: 15px;
+		}
+	}
+}
+
+:global(.ecssPage) {
+	.wrapper {
+		margin-top: 35px;
+	}
+}
+
+.itemInfo {
+	font-size: 12px;
+	color: $color-red;
+	line-height: 22px;
+	font-family: $font-din-next-medium;
+	width: 100%;
+	flex-grow: 2;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	white-space: pre-wrap;
+	@media (min-width: $media-breakpoint-sm) {
+		font-size: 14px;
+	}
+	@include arabic() {
+		font-family: $font-arabic-din-next-medium;
+	}
+}
+
+.category {
+	color: $color-green;
+}
+
+.title {
+	color: $color-black;
+	font-size: 16px;
+	line-height: 20px;
+	font-family: $font-din-next-regular;
+	@include arabic() {
+		font-family: $font-arabic-din-next-regular;
+	}
+}
+
+.name {
+	color: $color-black;
+	font-size: 16px;
+	line-height: 22px;
+	font-family: $font-din-next-medium;
+	@include arabic() {
+		font-family: $font-arabic-din-next-medium;
+	}
+}
+
+.itemInfoReadMore {
+	display: flex;
+	flex-flow: row;
+	align-items: flex-end;
+	justify-content: space-between;
+	margin-top: auto;
+	width: 100%;
+}
+
+.ctaLink {
+	display: none !important;
+	@media (min-width: $media-breakpoint-lg) {
+		display: inline-flex !important;
+	}
+	flex-flow: row !important;
+	align-items: center;
+	color: $color-green;
+	text-decoration: none !important;
+	width: auto !important;
+	padding-left: 10px;
+	@include arabic() {
+		padding-left: 0;
+		padding-right: 10px;
+	}
+
+	span {
+		margin-top: -2px;
+		padding-left: 14px;
+		@include arabic() {
+			padding-left: 0;
+			padding-right: 14px;
+		}
+		white-space: nowrap;
+		overflow: hidden;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&:before {
+		content: '';
+		width: 31px;
+		height: 31px;
+		box-sizing: content-box;
+		display: inline-block;
+		border: 1px solid #23453a;
+		border-radius: 50%;
+		flex-shrink: 0;
+		transition: background-position $ease-out-quad 0.3s;
+		background: url('../../assets/svgs/icon_arrow_right_green_no_circle.svg') no-repeat;
+		background-position: -31px 0;
+		background-size: 62px 31px;
+		@include arabic() {
+			transform: scaleX(-1);
+		}
+	}
+
+}
+
+body:global(.dark-mode) {
+	.category {
+		color: $color-yellow;
+	}
+
+	.title, .name {
+		color: $color-white;
+	}
+
+	.wrapper {
+		border-color: #3D3F41;
+
+		p {
+			color: $color-grey-6;
+		}
+	}
+
+	.ctaLink {
+		color: $color-white;
+		&:before {
+			border: 1px solid $color-white;
+			background: url('../../assets/svgs/icon_arrow_right_white_no_circle.svg') no-repeat;
+			background-position: -31px 0;
+			background-size: 62px 31px;
+		}
+
+		&:hover {
+			&:before {
+				background-position: 0px 0;
+			}
+		}
+	}
+}

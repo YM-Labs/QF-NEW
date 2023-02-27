@@ -1,0 +1,21 @@
+.DS_Store
+npm-debug.log
+.hz
+.env
+.vscode/
+.cache/
+node_modules/
+.gatsby-context.js
+.intermediate-representation/
+public/
+.idea/
+.env
+lambda/*
+package-lock.json
+static/forms/*.html
+apollo.config.js
+
+# Local Netlify folder
+.netlify
+src/gatsby-queries.d.ts
+gatsby-schema.json

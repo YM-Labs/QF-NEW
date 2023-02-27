@@ -1,0 +1,44 @@
+.wrapper {
+	margin-top: 50px;
+}
+
+.masonryWrapper {
+	width: 100%;
+
+	& > * {
+		display: inline-block;
+		margin-bottom: 55px;
+		width: 100%;
+
+		@media (min-width: $media-breakpoint-md) {
+			margin-bottom: 55px;
+		}
+
+
+		@media (min-width: $media-breakpoint-md) {
+			margin-bottom: 75px;
+		}
+
+		h3 {
+			margin-top: 20px;
+			height: auto !important;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		:global(.gatsby-image-outer-wrapper) {
+			margin-top: 0px !important;
+		}
+
+		@media (min-width: $media-breakpoint-md) {
+			width: calc(50% - 25px);
+			// padding-right: 25px;
+		}
+		@media (min-width: $media-breakpoint-lg) {
+			// padding-right: 50px;
+		}
+	}
+
+}

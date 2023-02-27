@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "lib": ["dom", "es2015", "es2017"],
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "strict": false,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "importHelpers": true
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

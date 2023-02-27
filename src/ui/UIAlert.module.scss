@@ -1,0 +1,182 @@
+
+
+.alertWrapper {
+	position: absolute;
+	top: -75px;
+	left: 0;
+	background: $color-green;
+	width: 100%;
+	padding-left: 20px;
+	color: $color-white;
+	padding-top: 10px;
+	z-index: 9999;
+	height: 75px;
+
+	@media (max-width: $media-breakpoint-md) {
+		font-size: 14px;
+		padding-top: 15px;
+		height: 85px;
+		top: -85px;
+		padding-left: 15px;
+	}
+
+	@include arabic() {
+		padding-right: 20px;
+		padding-left: 0px;
+	}
+
+	@media (max-width: $media-breakpoint-sm) {
+		font-size: 13px;
+	}
+
+	:local(.innerWrapper) {
+        max-width: 80%;
+		margin-bottom: 13px;
+
+		@media (max-width: $media-breakpoint-md) {
+			max-width: 95%;
+		}
+        
+		@media (min-width: $media-breakpoint-xl) {
+			flex-flow: row;
+			justify-content: space-between;
+		}
+	}
+
+	a {
+		color: $color-white;
+		text-decoration: underline;
+		display: inline-block;
+		margin-bottom: 10px;
+		margin-top: 1px;
+	}
+
+	h4 {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		span {
+			font-weight: bold;
+		}
+		font-weight: bold;
+
+		@media (max-width: $media-breakpoint-sm) {
+			padding-bottom: 10px;
+		}
+	}
+
+	.closeButton {
+		position: absolute;
+		width: 60px;
+		height: 50px;
+		cursor: pointer;
+		top: 0px;
+		right: 0px;
+
+		&:before {
+			content: '';
+			width: 18px;
+			height: 1px;
+			background: $color-white;
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: calc(50% - 9px);
+			transform: rotate(45deg);
+
+			@media (max-width: $media-breakpoint-md) {
+				width: 15px;
+				left: calc(65% - 0px);
+			}
+
+			@media (max-width: $media-breakpoint-sm) {
+				@include arabic() {
+					left: 10px;
+				}
+			}
+		}
+
+		&:after {
+			content: '';
+			width: 18px;
+			height: 1px;
+			background: $color-white;
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: calc(50% - 9px);
+			transform: rotate(-45deg);
+
+			@media (max-width: $media-breakpoint-md) {
+				width: 15px;
+				left: calc(65% - 0px);
+			}
+
+			@media (max-width: $media-breakpoint-sm) {
+				@include arabic() {
+					left: 10px;
+				}
+			}
+		}
+	}
+}
+
+.smallLinks {
+	width: 100%;
+	color: #77777a;
+	margin-bottom: -10px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-bottom: 0;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		width: percentage(math.div(8, 12));
+	}
+
+	a {
+		display: inline-block;
+		margin-bottom: 10px;
+		margin-right: 10px;
+		@media (min-width: $media-breakpoint-md) {
+			margin-bottom: 0;
+		}
+	}
+}
+
+html[lang='ar'] {
+	.smallLinks {
+		a {
+			margin-left: 10px;
+			margin-right: auto;
+		}
+	}
+	.alertWrapper {
+		.closeButton {
+			left: 0px;
+			right: auto;
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.alertWrapper {
+		background: $color-grey-2;
+		color: $color-black-alt;
+
+		a {
+			color: $color-black-alt;
+		}
+
+		.closeButton {
+			&:before {
+				background: $color-black-alt;
+			}
+			&:after {
+				background: $color-black-alt;
+			}
+		}
+	}
+}
+:global(html.tap-story) {
+	.alertWrapper {
+		position: fixed;
+	}
+}

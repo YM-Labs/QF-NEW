@@ -1,0 +1,165 @@
+
+
+.wrapper {
+	@media (min-width: $media-breakpoint-md) {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+	}
+	@media (min-width: $media-breakpoint-md) {
+		padding-left: percentage(math.div(0.5, 12)) !important;
+		padding-right: percentage(math.div(0.5, 12)) !important;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		padding-left: percentage(math.div(1, 12)) !important;
+		padding-right: percentage(math.div(1, 12)) !important;
+	}
+
+    &.fluidWidth {
+        padding-left: unset !important;
+        padding-right: unset !important;
+    }
+
+	.shortBoxedWrapper {
+		max-width: 1680px;
+		background: $color-white-2;
+		padding: 44px 20px 25px;
+		box-sizing: border-box;
+		margin-right: -15px;
+		margin-left: -15px;
+		@media (min-width: $media-breakpoint-md) {
+			width: 100%;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		@media (min-width: $media-breakpoint-md) {
+			padding-left: percentage(math.div(0.5, 12)) !important;
+			padding-right: percentage(math.div(0.5, 12)) !important;
+		}
+		@media (min-width: $media-breakpoint-xl) {
+			padding-top: 100px;
+			padding-bottom: 100px;
+			padding-left: percentage(math.div(1.2, 12)) !important;
+			padding-right: percentage(math.div(1.2, 12)) !important;
+		}
+	}
+
+	.links {
+		display: flex;
+		flex-flow: column;
+		& > div {
+			& > a {
+				margin-top: 15px !important;
+			}
+		}
+		@media (min-width: $media-breakpoint-md) {
+			max-width: 50%;
+			flex-flow: row;
+			flex-wrap: wrap;
+			& > div {
+				flex-shrink: 0;
+				width: 50%;
+				& > a {
+					margin-top: 20px !important;
+				}
+			}
+		}
+	}
+
+	.title {
+		font-size: 24px;
+		font-family: $font-pf-din-next-bold;
+		color: #0F362A;
+		margin-bottom: 12px;
+		white-space: pre-wrap;
+		line-height: 29px;
+		@media (min-width: $media-breakpoint-md) {
+			font-size: 40px;
+			line-height: 44px;
+		}
+
+		@include arabic() {
+			font-family: $font-arabic-din-next-regular;
+		}
+	}
+
+	.introParagraphText {
+		color: #0A372A;
+		font-size: 16px;
+		margin-bottom: 40px;
+		font-family: $font-din-next-light;
+		line-height: 1.4em;
+
+		@include arabic() {
+			font-family: $font-arabic-din-next-light;
+		}
+
+		@media (min-width: $media-breakpoint-md) {
+			font-size: 26px;
+		}
+	}
+
+	&.darkBackground {
+		.shortBoxedWrapper {
+			background: $color-brand;
+		}
+
+		.title,
+		.introParagraphText {
+			color: $color-white;
+		}
+
+		.title,
+		.introParagraphText {
+			color: $color-white;
+		}
+	}
+}
+
+:global(.text_black) {
+	color: $color-black !important;
+}
+
+:global(.no_link) {
+	margin-bottom: 0 !important;
+	margin-top: 40px !important;
+
+	p {
+		margin-top: 1em;
+	}
+}
+
+body:global(.dark-mode) {
+	:global(.text_black) {
+		color: $color-white-alt !important;
+	}
+
+	.wrapper {
+		&:not(.darkBackground) {
+
+			.title,
+			.introParagraphText {
+				color: $color-white;
+			}
+
+			.shortBoxedWrapper {
+				background: #1C1F21;
+			}
+		}
+
+		&.darkBackground {
+
+
+			.title,
+			.introParagraphText {
+				color: #1C1F21;
+			}
+
+			.shortBoxedWrapper {
+				background: $color-yellow;
+			}
+		}
+
+	}
+}
+

@@ -1,0 +1,51 @@
+select:not(.bx--select-input) {
+	background: transparent;
+	border: none;
+	border-radius: 0px;
+	-webkit-appearance: none;
+	height: 36px;
+	font-size: 18px;
+	color: $color-green;
+	font-family: $font-din-next-regular;
+	@include arabic() {
+		font-family: $font-arabic-din-next-regular;
+	}
+	border-bottom: 1px solid $color-green;
+	position: relative;
+	background: url('../assets/svgs/icon_small_arrow_down.svg') no-repeat right center;
+	padding: 0;
+	margin: 0;
+	padding-right: 20px;
+	@media (min-width: $media-breakpoint-md) {
+		font-size: 16px;
+		height: 32px;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		font-size: 18px;
+	}
+}
+.SelectList {
+	display: inline-flex;
+	flex-flow: column;
+	label {
+		color: #53565a;
+		font-size: 12px;
+	}
+}
+
+.dark-mode {
+    select:not(.bx--select-input) {
+		color: $color-white-alt;
+		border-bottom: 1px solid $color-yellow;
+        background: url('../assets/svgs/icon_small_arrow_down_white.svg') no-repeat right center;
+
+        &:hover {
+            border-color: $color-grey-6;
+        }
+    }
+	.SelectList {
+		label {
+			color: $color-white-alt;
+		}
+	}
+}

@@ -1,0 +1,65 @@
+.wrapper {
+	display: flex;
+	flex-flow: column;
+	@media (min-width: $media-breakpoint-md) {
+		display: flex;
+		flex-flow: row;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+	}
+	& + :local(.wrapper) {
+		@include module-margin-small(true);
+	}
+}
+
+.title {
+	border-top: 1px solid $color-grey-3;
+	display: block;
+	padding-top: 15px;
+	font-family: $font-din-next-regular;
+	@include arabic() {
+		font-family: $font-arabic-din-next-regular;
+	}
+	font-size: 20px;
+	line-height: 26px;
+	@media (min-width: $media-breakpoint-md) {
+		border-top: none;
+		padding-top: 0px;
+	}
+}
+
+.subtitle {
+	margin-top: 5px;
+	color: $color-grey;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: -5px;
+		width: 100%;
+		border-top: 1px solid $color-grey-3;
+		padding-top: 13px;
+		flex-shrink: 0;
+		order: 2;
+		@include arabic() {
+			margin-top: 20px;
+		}
+	}
+}
+
+.statistic {
+	order: -1;
+	@media (min-width: $media-breakpoint-md) {
+		order: 1;
+	}
+}
+
+body:global(.dark-mode) {
+	.wrapper {
+		background: $color-dark-2;
+	}
+	.subtitle {
+		color: $color-grey-6;
+		@media (min-width: $media-breakpoint-md) {
+			border-top: 1px solid $color-grey-1;
+		}
+	}
+}

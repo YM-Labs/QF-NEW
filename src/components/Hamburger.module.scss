@@ -1,0 +1,176 @@
+.hamburgerWrapper {
+    width: 25vw;
+    height: 12vw;
+    position: fixed;
+    bottom: 35px;
+    right: 15px;
+    transition: 0.3s ease all;
+    z-index: 99999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    @include arabic() {
+        right: unset;
+        left: 15px;
+    }
+
+    @media (max-width:$media-breakpoint-sm) {
+        display: flex;
+    }
+
+    .menuCircle {
+        background-color: $color-brand;
+        border-radius: 30px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: scale(1);
+        z-index: 9999;
+        transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+    }
+    .wrapper {
+        display: flex;
+        gap: 10px;
+        cursor: pointer;
+        z-index: 9999;
+    
+        .menuText {
+            color: $color-white;
+            width: 70%;
+            top: -2px;
+            position: relative;
+        }
+    
+        .menuLine {
+            width: 20px;
+            top: 0px;
+            right: 3px;
+            position: relative;
+
+            @include arabic() {
+                right: unset;
+                left: 3px;
+            }
+
+            .line {
+                background-color: #fff;
+                height: 2px;
+                width: 100%;
+                transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                -moz-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                -o-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+            .line1 { top: 0;
+                margin-bottom: 4px; }
+
+            .line2 {
+                top: 0;
+                bottom: 0;
+                margin: auto;margin-bottom: 4px;
+            }
+
+            .line3 { bottom: 0; }
+        }
+    }
+
+    :global(.menu-open) {
+        & ~ a {
+            .menuLine {
+                .line2 { opacity: 0; }
+    
+                .line1 {
+                    transform: translateY(7px) translateY(-50%) rotate(-135deg);
+                    -webkit-transform: translateY(7px) translateY(-50%) rotate(-135deg);
+                    -moz-transform: translateY(7px) translateY(-50%) rotate(-135deg);
+                    -o-transform: translateY(7px) translateY(-50%) rotate(-135deg);
+                }
+    
+                .line3 {
+                    transform: translateY(-7px) translateY(50%) rotate(135deg);
+                    -webkit-transform: translateY(-7px) translateY(50%) rotate(135deg);
+                    -moz-transform: translateY(-7px) translateY(50%) rotate(135deg);
+                    -o-transform: translateY(-7px) translateY(50%) rotate(135deg);
+                }
+            }
+        }
+    }
+
+    .circle {
+        border-radius: 50%;
+
+        & ~ a {
+            .menuText {
+                display: none;
+            }
+    
+            .menuLine {
+                top: 0px;
+                right: 0;
+                -webkit-transition: width 0.5s ease-in-out, right 0s ease-in-out;
+                -moz-transition: width 0.5s ease-in-out, right 0s ease-in-out;
+                -o-transition: width 0.5s ease-in-out, right 0s ease-in-out;
+                transition: width 0.5s ease-in-out, right 0s ease-in-out;
+
+                @include arabic() {
+                    left: 0px;
+                }
+            }
+        }
+    }
+}
+
+.containerXs {
+    width: 14vw;
+    height: 14vw;
+}
+
+:global(html.page-home) {
+	:local(.line) {
+		background: $color-white;
+	}
+}
+
+:global(body.menu-normal),
+:global(body.bg-white),
+:global(body.search-open) {
+	:local(.line) {
+		background: $color-brand;
+	}
+}
+
+body:global(.dark-mode) {
+    .hamburgerWrapper {
+        .menuCircle {
+            background-color: $color-yellow;
+        }
+        .wrapper {
+            .menuLine {
+                .line {
+                    background-color: $color-black;
+                }
+            }
+            .menuText {
+                color: $color-black;
+            }
+        }
+    }
+}
+
+:global(.menu_white) {
+	@media (min-width: $media-breakpoint-md) {
+		.line {
+			background-color: $color-white;
+		}
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		.line {
+			background: $color-white;
+		}
+	}
+}

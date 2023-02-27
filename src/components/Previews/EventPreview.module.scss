@@ -1,0 +1,300 @@
+.itemInfo {
+	margin-top: 23px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 15px;
+	}
+}
+
+.title {
+	display: flex;
+	align-items: flex-end;
+	height: 3em;
+	max-width: 480px;
+	@media (min-width: $media-breakpoint-md) {
+		height: 5em;
+	}
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.date {
+	margin-top: 10px;
+	line-height: 1.1;
+	height: 2em;
+	display: block;
+}
+
+.imageWrapper {
+	margin-top: 30px;
+}
+
+.wrapper {
+	width: 100%;
+	:global(.gatsby-image-outer-wrapper) {
+		overflow: hidden;
+		:global(.gatsby-image-wrapper) {
+			will-change: transform;
+			transition: transform $ease-out-quad 0.5s;
+		}
+	}
+
+	&:hover {
+		:global(.gatsby-image-wrapper) {
+			transform: scale(1.07);
+		}
+		text-decoration: none !important;
+	}
+
+	@media (min-width: $media-breakpoint-md) {
+		&:global(.small) {
+			.title {
+				font-size: 16px;
+				height: 7em;
+				line-height: 20px;
+			}
+
+			.date {
+				font-size: 22px;
+			}
+		}
+	}
+
+	&:global(.relatedMode) {
+		& > div {
+			border-top: 1px solid $color-grey-3;
+		}
+		margin-top: 0;
+	}
+}
+
+.newLayout {
+    &:hover {
+        text-decoration: none;
+    }
+    &:nth-child(1) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $color-red;
+            }
+            span {
+                background-color: $colorDarkGreen !important;
+            }
+        }
+    }
+    &:nth-child(2) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorPurple;
+            }
+            span {
+                background-color: $color-button-blue !important;
+            }
+        }
+    }
+    &:nth-child(3) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorRedOrange;
+            }
+            span {
+                background-color: $colorRedOrange !important;
+            }
+        }
+    }
+    &:nth-child(4) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorDarkGreen;
+            }
+            span {
+                background-color: $colorMaroon !important;
+            }
+        }
+    }
+    &:nth-child(5) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorDarkGreen !important;
+            }
+            span {
+                background-color: $colorDarkGreen !important;
+            }
+        }
+    }
+    &:nth-child(6) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorPurple;
+            }
+            span {
+                background-color: $color-button-blue !important;
+            }
+        }
+    }
+    &:nth-child(7) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorRedOrange;
+            }
+            span {
+                background-color: $colorRedOrange !important;
+            }
+        }
+    }
+    &:nth-child(8) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorDarkGreen;
+            }
+            span {
+                background-color: $colorMaroon !important;
+            }
+        }
+    }
+    &:nth-child(9) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorDarkGreen !important;
+            }
+            span {
+                background-color: $colorDarkGreen !important;
+            }
+        }
+    }
+    &:nth-child(10) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorDarkGreen;
+            }
+            span {
+                background-color: $colorMaroon !important;
+            }
+        }
+    }
+    &:nth-child(11) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorDarkGreen !important;
+            }
+            span {
+                background-color: $colorDarkGreen !important;
+            }
+        }
+    }
+    &:nth-child(12) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorPurple;
+            }
+            span {
+                background-color: $color-button-blue !important;
+            }
+        }
+    }
+    &:nth-child(13) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorRedOrange;
+            }
+            span {
+                background-color: $colorRedOrange !important;
+            }
+        }
+    }
+    &:nth-child(14) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorDarkGreen;
+            }
+            span {
+                background-color: $colorMaroon !important;
+            }
+        }
+    }
+    &:nth-child(15) {
+        .eventImage {
+            .eventDateWrapper {
+                background-color: $colorDarkGreen !important;
+            }
+            span {
+                background-color: $colorDarkGreen !important;
+            }
+        }
+    }
+    .title {
+        height: unset;
+        margin-top: 40px;
+        font-weight: bold;
+        color: $color-black;
+    }
+
+    .itemInfo {
+        margin-top: 5px;
+    }
+
+    .eventImage {
+        position: relative;
+
+        .eventDateWrapper {
+            position: absolute;
+            width: 55px;
+            left: -20px;
+            bottom: -20px;
+            background-color: $color-red !important;
+            color: $color-white;
+            padding: 5px 10px;
+            padding-bottom: 12px;
+
+            @include arabic() {
+                left: unset;
+                right: -20px;
+            }
+
+            @media (max-width: $media-breakpoint-sm) {
+                left: -10px;
+
+                @include arabic() {
+                    left: unset;
+                    right: -10px;
+                }
+            }
+
+            .eventDate {
+                position: relative;
+                font-size: 30px;
+                font-weight: bold;
+                padding-bottom: 3px;
+            }
+        }
+    }
+
+    .eventDescription {
+        font-size: 18px;
+        margin-top: 20px;
+
+        div {
+            p {
+                @media (max-width: $media-breakpoint-sm) {
+                    font-size: 15px;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}
+
+body:global(.dark-mode) {
+	.wrapper {
+		&:global(.relatedMode) {
+			& > div {
+				border-top: 1px solid $color-grey-1;
+			}
+		}
+	}
+    .newLayout {
+        .title {
+            color: $color-white;
+        }
+    }
+}

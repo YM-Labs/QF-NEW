@@ -1,0 +1,17 @@
+package.json
+package-lock.json
+node_modules/
+override_node_modules/
+.cache-loader/
+.cache/
+graphql/
+static/
+gatsby-schema.json
+graphql.config.json
+dev_resources/
+dist/
+public/
+*.woff2
+*.woff
+*.html
+src/assets/

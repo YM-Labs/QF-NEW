@@ -1,0 +1,27 @@
+.UIImageCircle {
+  width: 100%;
+  display: block;
+
+  .circleContainer {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+:local(.popOverTitleDetail) {
+    min-width: 90px;
+    margin-right: 40px;
+    display: -ms-flexbox;
+    display: flex;
+    flex-flow: column;
+    
+    img {
+      text-align: center;
+      width: 90px;
+    }
+
+    h3 {
+      text-align: center;
+      padding-top: 5px;
+    }
+}

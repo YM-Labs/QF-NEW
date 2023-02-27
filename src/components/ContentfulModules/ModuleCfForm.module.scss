@@ -1,0 +1,316 @@
+.wrapper {
+	position: relative;
+	z-index: 0;
+
+    .twoColumn {
+        .grid {
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+            @media (max-width: $media-breakpoint-sm) {
+                grid-template-columns: 100%;
+            }
+        }
+    }
+
+    .oneColumn {
+        display: grid;
+        grid-template-columns: 100%;
+
+        div {
+            margin: 0 !important;
+            margin-bottom: 5px !important;
+        }
+    }
+
+    .imgColumn {
+        padding-top: 50px;
+        .column {
+            display: grid;
+            column-gap: 2.5em;
+            grid-template-columns: 50% 50%;
+
+            @media (max-width: $media-breakpoint-sm) {
+                grid-template-columns: 100%;
+            }
+        }
+    }
+
+    .fields {
+        margin-bottom: 20px;
+        margin-right: 20px;
+        overflow: hidden;
+
+        @include arabic() {
+            margin-right: unset;
+            margin-left: 20px;
+        }
+    }
+
+    .submit {
+        grid-column-start: span 2;
+        margin-top: 30px;
+
+        &:disabled {
+            color: $color-grey-1;
+            cursor: not-allowed;
+
+            &:after {
+                background: none;
+            }
+        }
+        &:focus {
+            outline: 2px solid #0f62fe;
+            outline-offset: -2px;
+        }
+    }
+
+    .download_wrapper {
+        display: none;
+        margin-top: 60px;
+
+        @media (max-width: $media-breakpoint-sm) {
+            margin-top: 20px;
+        }
+
+        .download_link {
+            margin-top: 15px;
+        }
+    }
+
+	.ctaLink {
+        display: inline-flex;
+        flex-flow: row;
+        align-items: center;
+        color: $color-green;
+        text-decoration: none;
+        padding-left: 0;
+
+        @include arabic() {
+            padding-right: 0;
+            padding-left: unset;
+        }
+        
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:global(.module-margin-small) {
+            padding-top: 0;
+            @include module-margin-small(true);
+        }
+
+        span {
+            padding: 0 14px;
+        }
+
+        .submiting {
+            color: $color-grey-2;
+            text-decoration: none !important;
+            padding: 0 !important;
+        }
+
+        &:before {
+            content: '';
+            width: 31px;
+            height: 31px;
+            box-sizing: content-box;
+            display: inline-block;
+            border: 1px solid #23453a;
+            border-radius: 50%;
+            transition: background-position $ease-out-quad 0.3s;
+            background: url('../../assets/svgs/icon_arrow_right_green_no_circle.svg') no-repeat;
+            background-position: -31px 0;
+            background-size: 62px 31px;
+            margin-right: 15px;
+            @include arabic() {
+                transform: scaleX(-1);
+                margin-left: 15px;
+                margin-right: unset;
+            }
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            &:before {
+                border: 1px solid $color-grey-2;
+                background: url('../../assets/svgs/icon_arrow_right_grey_no_circle.svg') no-repeat;
+            }
+        }
+
+        &:hover {
+            &:before {
+                background-position: 0px 0;
+            }
+        }
+    }
+}
+
+:global(.bx--form) {
+    font-family: $font-din-next-regular !important;
+    @include arabic() {
+        font-family: $font-arabic-din-next-regular !important;
+    }
+}
+
+:global(.requirement) {
+    color: #da1e28;
+    display: block;
+    max-height: 12.5rem;
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .32px;
+    line-height: 1rem;
+    margin: 0.25rem 0 0;
+    overflow: hidden;
+}
+
+:global(.bx--text-input__field-wrapper) {
+    position: relative;
+    display: block !important;
+    width: 100%;
+}
+
+:global(.bx--select-input__wrapper) {
+    position: relative;
+    display: block !important;
+    width: 100%;
+}
+
+:global(.form-error) {
+    max-height: 12.5rem;
+    display: block;
+    color: #da1e28;
+    opacity: 0.9;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    margin: 0.25rem 0 0;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+:global(.form-margin-top) {
+    background-color: #e14524;
+    color: #fff;
+    padding: 6px 10px 10px;
+    position: relative;
+}
+
+:global(.bx--checkbox-label) {
+    display: unset !important;
+}
+
+:global(.upcoming-ecss .bx--radio-button__appearance) {
+    border-color: $color-white;
+
+    @include arabic() {
+        margin-right: unset;
+        margin-left: 0.5rem;
+    }
+}
+
+:global(.bx--radio-button__label.bx--radio-button__label) {
+    @include arabic() {
+        margin-right: 0;
+        margin-left: 1rem;
+    }
+    span {
+        @include arabic() {
+            margin-left: 0.3rem;
+        }
+    }
+}
+
+:global(.upcoming-ecss .bx--radio-button:checked + .bx--radio-button__label .bx--radio-button__appearance) {
+    border-color: $color-white;
+
+    &:before {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+:global(.bx--text-input) {
+    font-family: $font-din-next-regular !important;
+    @include arabic() {
+        font-family: $font-arabic-din-next-regular !important;
+    }
+}
+
+:global(.bx--select-input) {
+    width: 100%;
+    max-width: unset;
+
+    font-family: $font-din-next-regular !important;
+    @include arabic() {
+        font-family: $font-arabic-din-next-regular !important;
+    }
+}
+
+:global(.bx--checkbox-label-text) {
+    position: relative;
+    top: 4px;
+
+    @include arabic() {
+        top: 0px;
+    }
+}
+
+:global([data-uid="dreesha-performing-arts-festival"]) {
+    background-color: rgb(242, 242, 240);
+    padding: 50px !important;
+    padding-top: 10px !important;
+
+    p {
+        font-size: 18px !important;
+
+        a {
+            top: 0px !important;
+        }
+    }
+}
+
+:global(#i-am-attending) {
+    display: none !important;
+}
+
+body:global(.dark-mode) {
+	.wrapper {
+        .ctaLink {
+			color: $color-white;
+			&:before {
+				border: 1px solid $color-white;
+			    background: url('../../assets/svgs/icon_arrow_right_white_no_circle.svg') no-repeat;
+			}
+		}
+	}
+    :global(.bx--checkbox:checked + .bx--checkbox-label) {
+        &:before {
+            border: 1px solid $color-white;
+        }
+    }
+    :global(.bx--checkbox-label) {
+        &:before {
+            border: 1px solid $color-white;
+        }
+    }
+    :global(.bx--label) {
+        color: $color-white-alt;
+    }
+    :global([data-uid="dreesha-performing-arts-festival"]) {
+        background-color: $color-dark-1;
+        p {
+            color: $color-grey-4 !important;
+        }
+    }
+    :global(.bx--radio-button__appearance) {
+        border-color: $color-white;
+    }
+    :global(.bx--radio-button:checked + .bx--radio-button__label .bx--radio-button__appearance) {
+        border-color: $color-white;
+
+        &:before {
+            background-color: rgb(255, 255, 255);
+        }
+    }
+}

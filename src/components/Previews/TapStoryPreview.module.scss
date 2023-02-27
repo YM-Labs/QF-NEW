@@ -1,0 +1,128 @@
+.titleWrapper {
+	&:hover {
+		text-decoration: none !important;
+	}
+}
+
+.wrapper {
+	overflow: hidden;
+	&:global(.large) {
+		.title {
+			font-size: 28px;
+			line-height: 32px;
+		}
+	}
+
+	:global(.gatsby-image-outer-wrapper) {
+		overflow: hidden;
+		:global(.gatsby-image-wrapper) {
+			will-change: transform;
+			transition: transform $ease-out-quad 0.5s;
+		}
+	}
+	&:hover {
+		:global(.gatsby-image-wrapper) {
+			transform: scale(1.07);
+		}
+		text-decoration: none;
+	}
+}
+
+.title {
+	font-size: 18px;
+	line-height: 18px;
+	//font-size: 12px;
+	//line-height: 16px;
+	font-family: $font-pf-din-next-regular;
+	color: $color-brand;
+	padding-right: 12px;
+
+	@include arabic() {
+		font-family: $font-arabic-din-next-regular;
+		padding-right: 0;
+		padding-left: 12px;
+	}
+	margin-top: 15px;
+
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 20px;
+		font-size: 18px;
+		line-height: 22px;
+		padding-right: 0px;
+	}
+}
+
+.small {
+	.title {
+		font-size: 12px;
+		line-height: 16px;
+	}
+}
+
+.linkText {
+	font-size: 14px;
+	line-height: 17px;
+	color: $color-brand;
+	margin-top: 20px;
+	display: none;
+
+	@media (min-width: $media-breakpoint-md) {
+		display: inline-block;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:after {
+		content: "";
+		display: inline-block;
+		width: 6px;
+		height: 7px;
+		position: relative;
+		top: -2px;
+		margin-left: 6px;
+		background: url('../../assets/svgs/external_link.svg') no-repeat;
+		background-size: 6px 7px;
+
+		@include arabic() {
+			margin-left: unset;
+			margin-right: 6px;
+			transform: scaleX(-1);
+		}
+	}
+}
+
+.itemInfo {
+	margin-top: 23px;
+	font-size: 13px;
+	color: $color-grey-2;
+	line-height: 18px;
+	letter-spacing: -0.022em;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 15px;
+	}
+	.tagLink {
+		color: #BEBCBC;
+		letter-spacing: 0;
+		margin-right: 8px;
+		display: inline-block;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.linkText,
+	.title {
+		color: $color-white;
+	}
+
+	.linkText {
+		&:after {
+			background: url('../../assets/svgs/external_link_white.svg') no-repeat;
+			background-size: 6px 7px;
+		}
+	}
+}

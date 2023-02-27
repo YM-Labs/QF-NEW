@@ -1,0 +1,29 @@
+.svg {
+	stroke: $color-brand !important;
+	position: relative;
+	top: 4px;
+	left: 5px;
+}
+
+html:global(.page-home) {
+	body:global(:not(.menu-normal)) {
+		.svg {
+			stroke: $color-white !important;
+		}
+	}
+}
+
+html:global(.page-home) {
+    body:global(.bg-white) {
+		.svg {
+			stroke: $color-brand !important;
+		}
+	}
+}
+
+body:global(.dark-mode) {
+	.svg {
+		top: 0px;
+		left: 0px;
+	}
+}

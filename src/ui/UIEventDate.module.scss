@@ -1,0 +1,81 @@
+.year {
+	color: $color-grey-1;
+}
+
+.ecssDate {
+    text-align: right;
+    display: block;
+    font-weight: 600;
+    padding-right: 20px;
+
+    @media (max-width: $media-breakpoint-sm) {
+        font-size: 20px !important;
+    }
+
+    @include arabic() {
+        text-align: left;
+        padding-right: unset;
+        padding-left: 20px;
+    }
+
+    .year {
+        color: $color-orange;
+    }
+}
+
+.newLayout {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    display: flex;
+    padding: 5px 10px;
+    padding-bottom: 12px;
+    width: max-content;
+    color: $color-white;
+
+    @include arabic() {
+        left: unset;
+        right: -20px;
+		
+		@media (max-width: $media-breakpoint-sm) {
+            right: -10px;
+        }
+    }
+
+    @media (max-width: $media-breakpoint-sm) {
+        left: -10px;
+    }
+
+    .hyphen{
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .column {
+        flex: 50%;
+
+        @media (max-width: $media-breakpoint-sm) {
+            left: -10px;
+
+            @include arabic() {
+                left: unset;
+                right: -10px;
+            }
+        }
+
+        .eventDate {
+            position: relative;
+            font-size: 30px;
+            font-weight: bold;
+            padding-bottom: 3px;
+        }
+    }
+}
+
+body:global(.dark-mode) {
+    .year {
+        color: $color-grey-2;
+    }
+}

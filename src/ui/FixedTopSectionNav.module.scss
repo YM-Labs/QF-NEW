@@ -1,0 +1,345 @@
+.wrapper {
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	display: none;
+    width: 100%;
+    background-color: $color-grey-3;
+    
+    @media (max-width: $media-breakpoint-sm) {
+        display: block;
+        padding: 0 !important;
+	}
+	@media (min-width: $media-breakpoint-md) {
+		margin-right: -34px;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		display: block;
+		margin-right: -45px;
+	}
+	@media (min-width: $media-breakpoint-xxl) {
+		margin-right: -54px;
+	}
+
+	@include arabic() {
+		@media (min-width: $media-breakpoint-md) {
+			margin-left: -34px;
+			margin-right: 0;
+		}
+		@media (min-width: $media-breakpoint-xl) {
+			margin-left: -45px;
+			margin-right: 0;
+		}
+		@media (min-width: $media-breakpoint-xxl) {
+			margin-left: -54px;
+			margin-right: 0;
+		}
+
+		right: auto;
+		left: $padding-xs;
+		@media (min-width: $media-breakpoint-md) {
+			right: auto;
+			left: percentage(math.div(1, 12));
+		}
+		@media (min-width: $media-breakpoint-xl) {
+			right: auto;
+			left: percentage(math.div(2, 12));
+		}
+	}
+
+	transition: opacity 0.2s;
+	pointer-events: none;
+	opacity: 0;
+
+    @include arabic() {
+        right: unset;
+        left: auto;
+    }
+
+	&.visible {
+		pointer-events: all;
+		opacity: 1;
+	}
+
+    .sectionWrapper {
+        position: relative;
+
+        @media (max-width: $media-breakpoint-sm) {
+            position: unset;
+        }
+
+        .upNext {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+
+            @media (max-width: $media-breakpoint-sm) {
+                background-color: $color-white;
+                width: 100%;
+                position: unset;
+                border-bottom: 1px solid $color-grey-3;
+            }
+            
+            @include arabic() {
+                right: unset;
+                left: 0px;
+            }
+
+            .upNextText {
+                display: inline;
+                padding-right: 20px;
+                z-index: -1;
+                position: relative;
+
+                @include arabic() {
+                    padding-left: 20px;
+                    padding-right: unset;
+                }
+
+                @media (max-width: $media-breakpoint-sm) {
+                    z-index: 0;
+                    padding-left: 15px;
+                    color: $color-grey-1;
+
+                    @include arabic() {
+                        padding-left: unset;
+                        padding-right: 15px;
+                    }
+                }
+            }
+            
+            .nextSection {
+                color: $color-white;
+                background-color: $color-red;
+                padding-top: 16px;
+                padding-bottom: 22px;
+                padding-left: 25px;
+                padding-right: 20px;
+                cursor: pointer;
+                display: inline-block;
+
+                ul {
+                    background: $color-red;
+                    list-style: none;
+                    padding: 0 30px;
+                    padding-bottom: 30px;
+                    padding-top: $header-height;
+                    position: absolute;
+                    //width: 100%;
+                    visibility: hidden;
+                    opacity: 0;
+                    z-index: -1;
+                    transform: translateY(-30px);
+                    min-width: 300px;
+                    transition: transform 0.4s $ease-out-quad, opacity 0.35s, visibility 0s 0.3s;
+                    @media (min-width: $media-breakpoint-md) {
+                        margin-top: -40px;
+                    }
+                    @media (max-width: $media-breakpoint-sm) {
+                        width: 100%;
+                        padding-top: 30px;
+                        left: unset;
+                        min-width: unset;
+                    }
+                    right: 0;
+                    @include arabic() {
+                        right: unset;
+                        left: 0;
+                        padding-left: 57px;
+                        padding-right: 30px;
+                    }
+                    a {
+                        white-space: nowrap;
+                        color: #f6c7bd !important;
+            
+                        &.active {
+                            color: $color-white !important;
+                        }
+                    }
+                }
+
+                &:hover {
+                        ~ span {
+                            opacity: 0 !important;
+                        }
+                        ul {
+                            transition: transform 0.4s $ease-out-quad, opacity 0.35s, visibility 0s 0s;
+                            transform: translateY(0px);
+                            pointer-events: all;
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                
+                        svg {
+                            path {
+                                fill: $color-white;
+    
+                                @media (max-width: $media-breakpoint-sm) {
+                                    fill: $color-black;
+                                }
+                            }
+            
+                            transform: rotate(-180deg);
+                        }
+                }
+
+
+                @media (max-width: $media-breakpoint-sm) {
+                    background-color: $color-white;
+                    color: $color-black;
+                    padding-bottom: 18px;
+
+                    &:hover {
+                        ul {
+                            transform: translateY(12px);
+                        }
+                    }
+                }
+
+                svg {
+                    margin-top: 2px;
+                    width: 12px;
+                    height: 8px;
+                    transition: transform 0.3s $ease-in-out-custom;
+                    fill: $color-white;
+
+                    @media (max-width: $media-breakpoint-sm) {
+                        fill: $color-black;
+                    }
+        
+                    path {
+                        transition: 0.3s $ease-in-out-custom;
+                        fill: $color-white;
+
+                        @media (max-width: $media-breakpoint-sm) {
+                            fill: $color-black;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .activeSection {
+            height: 54px;
+            color: $color-green;
+            display: flex;
+            flex-flow: row;
+            padding-top: 15px;
+
+            @media (max-width: $media-breakpoint-sm) {
+                display: none;
+            }
+    
+            .introText {
+                color: $color-black-alt;
+                margin-right: 30px;
+                top: 0;
+
+                @include arabic() {
+                    margin-right: unset;
+                    margin-left: 30px;
+                }
+            }
+    
+            .currentSection {
+                transition: color 0.2s;
+                margin-right: 15px;
+                color: $color-red;
+                text-decoration: underline;
+
+                @include arabic() {
+                    margin-left: 15px;
+                    margin-right: unset;
+                }
+            }
+        }
+    }
+}
+
+body:global(.dark-mode) {
+	.wrapper {
+        background: $color-dark-1;
+
+		.sectionWrapper {
+            .activeSection {
+                .introText {
+                    color: $color-white-alt;
+                }
+                .currentSection {
+                    color: $color-yellow;
+                }
+            }
+            .upNext {
+                background-color: $color-dark-1;
+                z-index: 0;
+
+                @media (max-width: $media-breakpoint-sm) {
+                    border-bottom: 1px solid $color-dark-2;
+                }
+
+                .nextSection {
+                    background-color: $color-yellow;
+                    color: $color-black;
+
+                    svg {
+                        fill: $color-black;
+            
+                        path {
+                            fill: $color-black;
+                        }
+                    }
+
+                    @media (max-width: $media-breakpoint-sm) {
+                        background-color: $color-dark-1;
+                        color: $color-white;
+
+                        svg {
+                            fill: $color-white;
+                
+                            path {
+                                fill: $color-white;
+                            }
+                        }
+                    }
+
+                    ul {
+                        a {
+                            color: $color-black-alt !important;
+
+                            &.active {
+                                color: $color-black !important;
+                            }
+                        }
+                    }
+                }
+                .upNextText {
+                    color: $color-white-alt !important;
+                }
+                ul {
+                    background: $color-yellow;
+                }
+                &:hover {
+                    .nextSection {
+                        & ~ ul {
+                            background-color: $color-yellow;
+
+                            a {
+                                color: $color-black !important;
+                                
+                                &.active {
+                                    color: $color-white !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+		.activeSection {
+			span {
+				color: $color-white;
+			}
+		}
+	}
+}

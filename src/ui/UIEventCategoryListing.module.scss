@@ -1,0 +1,18 @@
+.itemInfo {
+	font-size: 16px;
+	color: $color-grey-1;
+	line-height: 24px;
+}
+
+.category {
+	color: $color-green;
+}
+
+body:global(.dark-mode) {
+    .itemInfo {
+        color: $color-grey-2;
+    }
+	.category {
+		color: $color-yellow;
+	}
+}

@@ -1,0 +1,31 @@
+.wrapper {
+	position: absolute !important;
+	top: $header-height + 40px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	height: 100%;
+	visibility: hidden;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.5s, visibility 0s 0.5s;
+	display: none;
+	@media (min-width: $media-breakpoint-md) {
+		display: block;
+		top: 0;
+	}
+	iframe {
+		display: none;
+	}
+	&.open {
+		iframe {
+			display: block;
+		}
+		display: block;
+		pointer-events: all;
+		transition: opacity 0.5s, visibility 0s 0s;
+		visibility: visible;
+		opacity: 1;
+	}
+}

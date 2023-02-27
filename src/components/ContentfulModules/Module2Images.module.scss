@@ -1,0 +1,28 @@
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+}
+
+.imageWrapper {
+	flex-shrink: 0;
+	width: calc(50% - 15px);
+	margin-top: 20px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 0px;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		width: calc(50% - 20px);
+	}
+}
+
+.caption {
+	margin-top: 10px;
+	@media (min-width: $media-breakpoint-md) {
+		margin-top: 15px;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		margin-top: 20px;
+	}
+}

@@ -1,0 +1,374 @@
+.wrapper {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	pointer-events: none;
+	opacity: 0;
+
+    .vertical_title {
+        display: none;
+        @media (max-width: $media-breakpoint-sm) {
+            margin-bottom: 45px;
+            z-index: 9;
+            font-size: 20px;
+            display: inline-block;
+            font-family: $font-din-next-medium;
+        }
+
+        @include arabic() {
+			font-family: $font-arabic-din-next-medium
+		}
+
+        &[data-color="blue"] {
+            color: $colorActiveFontBlue;
+            text-decoration: underline;
+            text-underline-position: under;
+            text-underline-offset: 4px;
+        }
+
+        &[data-color="purple"] {
+            color: $colorActiveFontPurple;
+            text-decoration: underline !important;
+            text-underline-position: under;
+            text-underline-offset: 4px;
+        }
+
+        &[data-color="red"] {
+            color: $colorActiveFontRed;
+            text-decoration: underline !important;
+            text-underline-position: under;
+            text-underline-offset: 4px;
+        }
+
+        &[data-color="orange"] {
+            color: $color-red;
+            text-decoration: underline !important;
+            text-underline-position: under;
+            text-underline-offset: 4px;
+        }
+
+        span {
+            color: $color-grey-2;
+            margin-left: 5px;
+            text-decoration: none !important;
+            display: inline-block;
+        }
+    }
+
+    .introText {
+        display: none;
+        @media (max-width: $media-breakpoint-sm) {   
+            display: inline-block;
+            padding-bottom: 35px;
+            color: $color-grey-1;
+            max-width: 90%;
+            line-height: 21px;
+        }
+    }
+
+    .intro_hidden {
+        display: none;
+    }
+
+	a {
+		cursor: pointer;
+		text-decoration: none !important;
+	}
+
+	li {
+		opacity: 0;
+		transform: translate3d(-150px, 0, 0);
+		@include arabic() {
+			transform: translate3d(150px, 0, 0);
+		}
+		a {
+			@media (min-width: $media-breakpoint-md) {
+				transition: opacity 0.2s, transform 0.3s;
+				transform: translateX(0px);
+				display: inline-block;
+				&:hover {
+					transform: translateX(4px);
+					text-decoration: underline !important;
+				}
+			}
+		}
+	}
+	@media (min-width: $media-breakpoint-md) {
+		width: auto;
+	}
+}
+
+.mainMenuPreviewWrapper {
+	width: 100%;
+
+	.menuColumnWrapper {
+		padding: 0;
+	}
+}
+
+.hasSelection {
+	a {
+		opacity: 0.5;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&.active {
+			opacity: 1;
+		}
+	}
+}
+
+.menuColumnWrapper {
+	display: flex;
+	flex-flow: column;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	padding-right: 15px;
+	padding-top: 23px + $header-height;
+	width: 100%;
+	//display: none;
+	@media (min-width: $media-breakpoint-md) {
+		padding-top: 75px;
+		padding-left: 36px;
+		padding-right: 36px;
+	}
+
+	@media (min-width: $media-breakpoint-menu-full) {
+		padding-top: 32px;
+		padding-left: 36px;
+		padding-right: 36px;
+	}
+
+	&.mainMenuWrapper {
+        display: none;
+        @media (max-width: $media-breakpoint-sm) {
+			display: block;
+		}
+		@media (min-width: $media-breakpoint-md) {
+			padding-top: 32px;
+		}
+		display: flex;
+		overflow-y: auto;
+		overflow-x: hidden;
+		min-width: 250px;
+
+		:global(.firstMenuItem) {
+			font-family: $font-din-next-medium;
+			@include arabic() {
+				font-family: $font-arabic-din-next-medium;
+			}
+			font-size: 20px;
+            @media (max-width: $media-breakpoint-sm) {
+                font-size: 8vw;
+            }
+			line-height: 1;
+			margin-bottom: 12px;
+
+			&:nth-child(4) {
+				margin-bottom: 32px;
+			}
+
+			@media (min-width: $media-breakpoint-md) {
+				font-size: 24px;
+			}
+		}
+	}
+}
+
+a.currentActivePageLink {
+	text-decoration: underline !important;
+}
+
+:global(#subMenusWrapper ul li[data-null="false"]) {
+    display: none !important;
+}
+
+.subMenu {
+	background: $color-white;
+	left: 0;
+	top: 0;
+	//bottom: 76px;
+	width: 100%;
+	position: absolute;
+	overflow-y: auto;
+	overflow-x: hidden;
+	min-height: 100%;
+	@media (min-width: $media-breakpoint-md) {
+		min-height: auto;
+		position: static;
+		//margin-left: 10px;
+		width: auto;
+		height: 100%;
+		min-width: 250px;
+	}
+	//display: none;
+	:global(.firstSecondaryItem) {
+		margin-top: 30px;
+	}
+
+    ul {
+        li {
+            a {
+                padding-top: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                color: #204871;
+                background-color: transparent;
+                border-radius: 5px;
+            }
+            margin-bottom: 10px;
+
+            &:nth-child(1) {
+                a {
+                    text-decoration: none !important;
+                }
+            }
+            
+            &:nth-child(2) {
+                a {
+                    text-decoration: none !important;
+                }
+            }
+    
+            &:nth-child(3) {
+                a {
+                    text-decoration: none !important;
+                }
+            }
+
+            &:nth-child(4) {
+                a {
+                    text-decoration: none !important;
+                }
+            }
+        }
+    }
+
+    .blue {
+        li {
+            a {
+                color: $colorActiveFontBlue;
+                background-color: $colorBgBlue;
+            }
+        }
+    }
+
+    .purple {
+        li {
+            a {
+                color: $colorActiveFontPurple;
+                background-color: $colorBgPurple;
+            }
+        }
+    }
+
+    .red {
+        li {
+            a {
+                color: $colorActiveFontRed;
+                background-color: $colorBgRed;
+            }
+        }
+    }
+
+    .orange {
+        li {
+            a {
+                color: $colorActiveFontOrange;
+                background-color: $colorBgOrange;
+            }
+        }
+    }
+}
+
+body:global(.dark-mode) {
+    .wrapper {
+        .vertical_title {
+            &[data-color="blue"] {
+                color: $colorDarkActiveFontBlue;
+            }
+    
+            &[data-color="purple"] {
+                color: $colorDarkActiveFontPurple;
+            }
+    
+            &[data-color="red"] {
+                color: $colorDarkActiveFontRed;
+            }
+        }
+    }
+	.subMenu {
+        background: #16191b;
+
+        ul {
+            li {
+                a {
+                    color: $color-white-alt;
+                }
+            }
+        }
+    
+        .blue {
+            li {
+                a {
+                    color: $colorDarkActiveFontBlue;
+                    background-color: $colorDarkBgBlue;
+                }
+            }
+        }
+    
+        .purple {
+            li {
+                a {
+                    color: $colorDarkActiveFontPurple;
+                    background-color: $colorDarkBgPurple;
+                }
+            }
+        }
+    
+        .red {
+            li {
+                a {
+                    color: $colorDarkActiveFontRed;
+                    background-color: $colorDarkBgRed;
+                }
+            }
+        }
+
+        .orange {
+            li {
+                a {
+                    color: $colorDarkActiveFontOrange;
+                    background-color: $colorDarkBgOrange;
+                }
+            }
+        }
+    }
+	.hasSelection {
+		a {
+			opacity: 0.7;
+	
+			&:hover {
+				opacity: 0.8;
+			}
+	
+			&.active {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
+
+:global(.thirdLevelMenu) {
+    a {
+        background-color: transparent !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+    }
+}

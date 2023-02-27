@@ -1,0 +1,69 @@
+.listItem {
+	border-bottom: 1px solid $color-grey-3;
+	width: 100%;
+	line-height: 24px;
+	font-size: 18px;
+
+	a {
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		justify-content: space-between;
+		text-decoration: none;
+		padding: 17px 0;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 31px;
+			height: 31px;
+			pointer-events: none;
+			user-select: none;
+			border: 1px solid #23453a;
+			box-sizing: content-box;
+			border-radius: 50%;
+			transition: background-position $ease-out-quad 0.3s;
+			background: url('../../assets/svgs/icon_arrow_right_green_no_circle.svg') no-repeat;
+			background-position: -31px 0;
+			background-size: 62px 31px;
+			@include arabic() {
+				transform: scaleX(-1);
+			}
+		}
+		&:hover {
+			&:after {
+				background-position: 0px 0;
+			}
+		}
+	}
+
+	&.hidden {
+		display: none;
+	}
+}
+
+.titleWrapper {
+	display: block;
+	width: calc(50% - 60px);
+}
+
+.degree {
+	color: $color-grey-2;
+}
+
+.school {
+	color: $color-grey-1;
+}
+
+.firstColumn {
+	align-self: flex-start;
+	display: flex;
+	flex-flow: column;
+	width: calc(50% - 20px);
+	padding-right: 20px;
+	color: $color-black !important;
+	@include arabic() {
+		padding-right: 0px;
+		padding-left: 20px;
+	}
+}

@@ -1,0 +1,19 @@
+.itemsWrapper {
+	display: flex;
+	flex-flow: column;
+	border-top: 1px solid $color-grey-3;
+
+    &.noTopBorder {
+        border-top: none;
+    }
+    
+	ul {
+		list-style: none;
+	}
+}
+
+body:global(.dark-mode) {
+	.itemsWrapper {
+		border-top: 1px solid $color-grey-1;
+	}
+}

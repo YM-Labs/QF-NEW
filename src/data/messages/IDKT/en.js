@@ -1,0 +1,68 @@
+module.exports = {
+	overview: 'Overview',
+	idkt: 'IDKT',
+	idkt_long: 'Industry Development and\nKnowledge Transfer',
+	navigation: "Navigation",
+	technologies: "Technologies",
+	about: "About",
+	infobank: "Info Bank",
+	road_to_technology_transfer: "Road to Technology Transfer",
+	for_industry: "For Industry",
+	what_we_offer: "What we offer",
+	how_licensing_works: "How licensing works",
+	resources_for_industry: "Resources for Industry",
+	for_researchers: "For Researchers",
+	how_commercialization_works: "How Commercialization Works",
+	resources_for_researchers: "Resources for Researchers",
+	for_entrepreneurs: "For Entrepreneurs",
+	how_to_launch_a_startup: "How to Launch a Startup",
+	resources_for_entrepreneurs: "Resources for Entrepreneurs",
+
+	// ecosystem
+	qstp_popup_content: 'Qatar Science &amp; Technology Park (QSTP) supports commercialization through this innovation hub by offering free-zone facilities and services for corporate registration, incubation, and funding specifically designed for tech-based companies. IDKT works closely with QSTP on various entrepreneurship efforts.',
+	"tamu-q_popup_content": 'Texas A&M University at Qatar has engineering research centers focused on gas and fuels, process safety, smart grids, advanced computing, and sustainable water and energy utilization.',
+	"vcu-q_popup_content": 'VCUarts Qatar strives to contribute to the vitality of human, social, economic, and environmental development in Qatar and the region through creative innovation, expression, and collaboration.',
+	"wcm-q_popup_content": 'Weill Cornell Medicine–Qatar (WCM-Q) is developing core laboratory capabilities, including genomics and proteomics cores, computational biology and biostatistics cores, a vivarium, a microscopy core, and a basic laboratory support core.',
+	qgp_popup_content: 'Qatar Genome Programme (QGP) is focused on promoting genomic research by generating large databases combining whole genome sequencing and other omics data with comprehensive phenotypic data.',
+	qbb_popup_content: 'Qatar Biobank (QBB) is a repository of biological samples and information on health and lifestyle of Qatari citizens and long-term residents, enabling scientists to conduct vital medical research on prevalent health issues and connecting them with their peers in Qatar and abroad.',
+	qbri_popup_content: 'Qatar Biomedical Research Institute (QBRI) aims to improve and transform healthcare through innovation in prevention, diagnosis, and treatment of diseases affecting the Qatari population and the region.',
+	hbku_popup_content: 'Hamad Bin Khalifa University (HBKU) is an innovation-based entrepreneurial university leading in education and research, solving critical challenges facing Qatar and the world.',
+	qcri_popup_content: 'Qatar Computing Research Institute (QCRI) conducts world-class multidisciplinary cutting-edge research that is relevant to the needs of Qatar, the wider Arab region, and the world in the areas of social computing, data analytics, and cybersecurity.',
+	qeeri_popup_content: 'Qatar Environment and Energy Research Institute (QEERI) is developing innovative technologies in water desalination and treatment; water quality and reuse; aquifer recharge; and climate change and atmospheric science. It is also developing solutions in solar photovoltaics (PV), energy storage, and smart grids.',
+
+	// for-industry
+	find_popup_content: "Search our <a href= '/idkt/technologies'>technology database</a> for solutions or <a href='mailto:IDKT@qf.org.qa'>contact us</a> to discuss your technical challenges.",
+	evaluate_popup_content: "We offer non-disclosure agreements to protect proprietary information and encourage open dialogue and exploration. This allows both parties to assess the viability of the proposed partnership. Evaluation agreements allow you access to the QF technology for a limited time before executing a commercial license.",
+	negotiate_popup_content: "Together we will develop mutually beneficial terms and achievable milestones based on your proposed use of the technology.",
+	plan_popup_content: "We look forward to learning of your business model and plans for the technology. As you develop your plan, keep our <a data-origin='same' href= '/idkt/for-industry#section-3'>licensing criteria</a> in mind. And we will work together with you to ensure IP protection is sought in the market sector regions when available.",
+	sign_popup_content: "We offer exclusive, partially exclusive, and non-exclusive licensing based on your business plan. We can also help you develop collaboration opportunities based on pre-existing IP and researcher capabilities.",
+	develop_popup_content: "We provide available technical insights and other knowledge transfer as you reduce risk, prove reliability, and satisfy the market requirements through scale-up, testing, documentation, and marketing.",
+	promote_popup_content: "We collaborate with you to develop appropriate public relations materials that showcase the technology transfer success.",
+
+	// for-entrepreneurs
+	study_popup_content: "To help non-QF entrepreneurs within Qatar determine the viability of an innovative idea, we offer IP and technical consultation through our <a href='https://assets.ctfassets.net/2h1qowfuxkq7/7gCW2bKIcbZ2dk4vol1eMy/d18e015003703840c5e18c5c5b466034/AlKhabeerProgram.pdf'>Al Khabeer Program</a>. If you are a QF researcher, we also offer a pre-commercialization <a href= '/idkt/for-researchers#section-3'>Innovation Fellowship</a> in order to help de-risk a potential entrepreneurial opportunity, subject to approval.",
+	projections_popup_content: "QSTP offers a wide range of training and support programs to help new entrepreneurs plan a successful startup.",
+	licensing_popup_content: "We offer exclusive and non-exclusive licenses to our innovations based your business needs. Tailored to your company’s specific product/service type, these agreements are negotiated according to market norms. <a data-origin='same' href= '/idkt/for-entrepreneurs#section-3'>Entrepreneurial Leave</a> allows the company to utilize researchers for certain strategic activities on a case-by-case basis.",
+	establish_popup_content: "QSTP is in a free zone and is set up to provide services to register your company.",
+	incubation_popup_content: "We encourage you to apply to QSTP’s XLR8 and other programs for incubation, mentorship, and marketing opportunities.",
+	mvp_popup_content: "As you work on developing your product just enough to enter the market, there will be opportunities to access QF research institutes for consulting services, facilities use, and additional QF-developed IP. <a href='mailto:IDKT@qf.org.qa'>Contact us</a> to learn more.",
+	fund_popup_content: "To supplement your own funding, QSTP offers funding through its Product Development Fund and its Tech Venture Fund that can augment what you may obtain from angel and seed investors and venture capitalists.",
+
+	// for-researchers
+	research_popup_content: "As you conduct your investigations, consider how the results of your work can address a need in the market. Knowing the limitations of current solutions helps ensure your work is better than what already exists, increasing the chances of successful commercialization.",
+	report_popup_content: "As your work yields new or improved processes, tools, techniques, materials, software, and so on, submit an online invention disclosure so we can protect your idea and begin the process of maximizing its impact. Complete all of the fields as best you can, and feel free to <a href='mailto:IDKT@qf.org.qa'>contact us</a> if you have questions.",
+	assess_popup_content: "We analyze the market and competing technologies to determine your invention’s commercialization potential and whether a patent should be pursued.",
+	development_popup_content: "As we determine the best way to position your technology for successful commercialization, you play a valuable role by sharing your ideas and network of contacts for potential licensees.",
+	startup_popup_content: "We assist startup founders in planning, creating, and finding funding for ventures based on QF technologies.",
+	marketing_popup_content: "We reach out to relevant companies to determine their licensing interest. Your involvement in responding to potential licensees can dramatically enhance our marketing efforts.",
+	license_popup_content: "We negotiate with the licensee to specify their rights to use your technology (without relinquishing QF’s ownership) as well as their financial and other obligations to QF.",
+	commercialization_popup_content: "As the licensee prepares the technology for market use, you might be asked to provide technical insight, according to the negotiated terms of the agreement.",
+	revenue_popup_content: "You receive a portion of the license revenues received by QF, which are also shared with other contributing entities and QF institutes and centers.",
+	
+	other_popup_content: "QF’s ecosystem also includes other leading universities from around the world.",
+	goto_website: "Go to website",
+	goto_higher_education: "Go to universities and higher education programs",
+	subscribe_newsletter_heading: 'Subscribe to our quarterly newsletter',
+	subscribe_newsletter_text: 'With each issue, you can expect to learn more about new innovations coming out of QF, the prolific researchers behind them, and the resources available to both first time and veteran entreprenuers.',
+	subscribe: 'Subscribe'
+}

@@ -1,0 +1,106 @@
+@keyframes list-in {
+	0% {
+		opacity: 0.3;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	margin-top: 48px;
+	@media (min-width: $media-breakpoint-md) {
+		flex-flow: row;
+		justify-content: space-between;
+	}
+
+	& > div {
+		width: 100%;
+		@media (min-width: $media-breakpoint-md) {
+			width: calc(63.229% - 25px);
+		}
+		margin-top: 0;
+	}
+
+	.sectionNumber {
+		font-size: 40px;
+		margin-top: -3px;
+		line-height: 40px;
+		color: $color-orange;
+		font-family: $font-din-next-light;
+		@include arabic() {
+			font-family: $font-arabic-din-next-light;
+		}
+	}
+
+	.listWrapper {
+		width: 100%;
+		@media (min-width: $media-breakpoint-md) {
+			width: calc(36.77% - 25px);
+		}
+		display: flex;
+		flex-flow: column;
+		justify-content: space-between;
+		&:hover {
+			.textWrapper {
+				opacity: 0.3;
+			}
+		}
+	}
+
+	.textWrapper {
+		margin-top: 38px;
+		@media (min-width: $media-breakpoint-md) {
+			margin-top: -3px;
+		}
+		display: flex;
+		align-items: flex-start;
+		flex-flow: row;
+		transition: opacity 0.3s;
+		&.active {
+			opacity: 1;
+		}
+		&:hover {
+			opacity: 1 !important;
+		}
+	}
+
+	.descWrapper {
+		display: flex;
+		flex-flow: column;
+		margin-left: 32px;
+        cursor: pointer;
+
+		@include arabic() {
+			margin-left: 0;
+			margin-right: 32px;
+		}
+	}
+
+	.title {
+		font-size: 20px;
+		line-height: 26px;
+		color: $color-dark-1;
+	}
+
+	.desc {
+		font-size: 14px;
+		line-height: 16px;
+		color: $color-grey-1;
+		margin-top: 5px;
+	}
+}
+body:global(.dark-mode) {
+    .wrapper {
+        .desc {
+            color: $color-grey-2;
+        }
+    }
+	.sectionNumber {
+		color: $color-yellow;
+	}
+}
