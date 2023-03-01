@@ -36,3 +36,10 @@ jobs:
        inlineScript: |  
          az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.CONNECTION_STRING }}"  
          az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.CONNECTION_STRING }}"  
+   - uses: runlyio/azure-versioned-storage@v2
+     with:
+       sourceDir: ${{ secrets.CONNECTION_STRING }}
+       version: v${{ steps.pkg.outputs.version }}
+       container: mycontainername
+       connectionString: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+
