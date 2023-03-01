@@ -39,6 +39,6 @@ jobs:
      with:
        sourceDir: ${{ secrets.CONNECTION_STRING }}
        version: v${{ steps.pkg.outputs.version }}
-       container: version1
+       container: $web
        connectionString: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
 
