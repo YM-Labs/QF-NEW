@@ -35,4 +35,4 @@ jobs:
        inlineScript: |  
          az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.CONNECTION_STRING }}"  
          az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.CONNECTION_STRING }}"
-         
+        
