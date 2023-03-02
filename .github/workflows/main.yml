@@ -26,13 +26,5 @@ jobs:
        npm install --legacy-peer-deps
        npm install -g gatsby-cli 
    - name: Build with Gatsby  
-     run: gatsby build  
-     
-   - name: Azure upload  
-     uses: azure/CLI@v1  
-     with:  
-       azcliversion: 2.0.72  
-       inlineScript: |  
-         az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.CONNECTION_STRING }}"  
-         az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.CONNECTION_STRING }}"
+     run: gatsby develop
          
