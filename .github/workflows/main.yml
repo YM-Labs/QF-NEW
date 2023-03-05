@@ -14,19 +14,26 @@ jobs:
         uses: azure/powershell@v1
         with:
            inlineScript: |
-             $connectionString = "DefaultEndpointsProtocol=https;AccountName=qfstw;AccountKey=vf4+0aIJGxZaRZU1TZybA3/kh5k9TFl7PykvitfUnDKJRbUGFL9hSbIIRHBAfYKb6CS7T2XJd4CF+ASt9B16eg==;EndpointSuffix=core.windows.net"
-             $context = New-AzStorageContext -ConnectionString $connectionString
-             Get-AzStorageAccount -ResourceGroupName QF-SWA -Name qfstw
-             azPSVersion: "latest"
-             $web = '$web'
-             $sourceContext = New-AzStorageContext -ConnectionString $connectionString
-             $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
+              $tenantId = "f480c097-c9ad-49e3-bd75-963178917aa1"
+              $clientID = "60b58dbb-4f8b-4dfd-b763-e4f9df141925"
+              $clientSecret = "z__8Q~3ZRhG7HLMwyM6wkW3JSe1EH3QsQtW.0ato"
+              $subscriptionId = "c3dff2a8-ba98-4189-94a7-d3a42bfc42cd"
+              $securePassword = ConvertTo-SecureString $clientSecret -AsPlainText -Force
+              $psCredential = New-Object System.Management.Automation.PSCredential($clientID,$securePassword)
+              Connect-AzAccount -ServicePrincipal -Credential $psCredential -TenantId $tenantId -SubscriptionId $subscriptionId
+              $storageAccount = Get-AzStorageAccount -ResourceGroupName "<your-resource-group-name>" -Name "<your-storage-account-name>"
+              $storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "<your-resource-group-name>" -Name "<your-storage-account-name>" | Select-Object -ExpandProperty Value
+              $storageContext = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageAccountKey
+              azPSVersion: "latest"
+              $web = '$web'
+              $sourceContext = New-AzStorageContext -ConnectionString $connectionString
+              $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
 
-             $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
-             New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
-             $destinationContext = New-AzStorageContext -ConnectionString $connectionString
-             foreach ($blob in $sourceBlobList) {
-                $destinationBlobName = $blob.Name
-                $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
-             }
+              $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
+              New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
+              $destinationContext = New-AzStorageContext -ConnectionString $connectionString
+              foreach ($blob in $sourceBlobList) {
+                 $destinationBlobName = $blob.Name
+                 $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
+              }
            azPSVersion: "latest"
