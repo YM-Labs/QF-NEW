@@ -35,4 +35,28 @@ jobs:
        inlineScript: |  
          az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.CONNECTION_STRING }}"  
          az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.CONNECTION_STRING }}"
-        
+ backup:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - name: Setup PowerShell
+        uses: microsoft/setup-powershell@v1
+
+      - name: Run Backup Script
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          RESOURCE_GROUP_NAME: QF-SWA
+          STORAGE_ACCOUNT_NAME: qfstw
+        run: |
+          $web = '$web'
+          $connectionString = "DefaultEndpointsProtocol=https;AccountName=$($env:STORAGE_ACCOUNT_NAME);AccountKey=$($env:AZURE_STORAGE_ACCOUNT_KEY);EndpointSuffix=core.windows.net"
+          $sourceContext = New-AzStorageContext -ConnectionString $connectionString
+          $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
+          $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
+          New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
+          $destinationContext = New-AzStorageContext -ConnectionString $connectionString
+          foreach ($blob in $sourceBlobList) {
+            $destinationBlobName = $blob.Name
+            $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
+          }
+
