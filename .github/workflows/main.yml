@@ -14,6 +14,7 @@ jobs:
         uses: azure/powershell@v1
         with:
            inlineScript: |
+              $connectionString = "DefaultEndpointsProtocol=https;AccountName=qfstw;AccountKey=vf4+0aIJGxZaRZU1TZybA3/kh5k9TFl7PykvitfUnDKJRbUGFL9hSbIIRHBAfYKb6CS7T2XJd4CF+ASt9B16eg==;EndpointSuffix=core.windows.net"
               $tenantId = "f480c097-c9ad-49e3-bd75-963178917aa1"
               $clientID = "60b58dbb-4f8b-4dfd-b763-e4f9df141925"
               $clientSecret = "z__8Q~3ZRhG7HLMwyM6wkW3JSe1EH3QsQtW.0ato"
@@ -28,7 +29,7 @@ jobs:
               $sourceBlobList = Get-AzStorageBlob -Container $web -Context $storageContext
 
               $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
-              New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
+              New-AzStorageContainer -Name $destinationContainerName -Context $storageContext
               $destinationContext = New-AzStorageContext -ConnectionString $connectionString
               foreach ($blob in $sourceBlobList) {
                  $destinationBlobName = $blob.Name
