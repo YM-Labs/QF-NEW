@@ -23,7 +23,6 @@ jobs:
               $psCredential = New-Object System.Management.Automation.PSCredential($clientID,$securePassword)
               Connect-AzAccount -ServicePrincipal -Credential $psCredential -TenantId $tenantId -SubscriptionId $subscriptionId
               $storageAccount = Get-AzStorageAccount -ResourceGroupName "QF-SWA" -Name "qfstw"
-              $storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "QF-SWA" -Name "qfstw" | Select-Object -ExpandProperty Value
               $storageContext = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageAccountKey
               azPSVersion: "latest"
               $web = '$web'
