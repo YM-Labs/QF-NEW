@@ -18,6 +18,7 @@ jobs:
               $clientID = "60b58dbb-4f8b-4dfd-b763-e4f9df141925"
               $clientSecret = "z__8Q~3ZRhG7HLMwyM6wkW3JSe1EH3QsQtW.0ato"
               $subscriptionId = "c3dff2a8-ba98-4189-94a7-d3a42bfc42cd"
+              $storageAccountKey="vf4+0aIJGxZaRZU1TZybA3/kh5k9TFl7PykvitfUnDKJRbUGFL9hSbIIRHBAfYKb6CS7T2XJd4CF+ASt9B16eg=="
               $securePassword = ConvertTo-SecureString $clientSecret -AsPlainText -Force
               $psCredential = New-Object System.Management.Automation.PSCredential($clientID,$securePassword)
               Connect-AzAccount -ServicePrincipal -Credential $psCredential -TenantId $tenantId -SubscriptionId $subscriptionId
