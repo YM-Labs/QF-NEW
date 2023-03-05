@@ -14,6 +14,7 @@ jobs:
         uses: azure/powershell@v1
         with:
           inlineScript: |
+             azPSVersion: "latest"
              $resourceGroupName = "QF-SWA"
              $storageAccountName = "qfstw"
              Connect-AzAccount
