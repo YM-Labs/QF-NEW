@@ -13,14 +13,11 @@ jobs:
       - name: Backup Azure Blob Storage
         uses: azure/powershell@v1
         with:
-          inlineScript: |
+           inlineScript: |
+             $connectionString = "DefaultEndpointsProtocol=https;AccountName=qfstw;AccountKey=vf4+0aIJGxZaRZU1TZybA3/kh5k9TFl7PykvitfUnDKJRbUGFL9hSbIIRHBAfYKb6CS7T2XJd4CF+ASt9B16eg==;EndpointSuffix=core.windows.net"
+             $context = New-AzStorageContext -ConnectionString $connectionString
+             Get-AzStorageAccount -ResourceGroupName QF-SWA -Name qfstw
              azPSVersion: "latest"
-             $resourceGroupName = "QF-SWA"
-             $storageAccountName = "qfstw"
-             Connect-AzAccount
-             Select-AzSubscription -SubscriptionId "c3dff2a8-ba98-4189-94a7-d3a42bfc42cd"
-             $connectionString = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | Select-Object -ExpandProperty PrimaryConnectionString
-
              $web = '$web'
              $sourceContext = New-AzStorageContext -ConnectionString $connectionString
              $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
