@@ -1,63 +1,32 @@
-name: Deploy Gatsby to Azure Storage
+name: Azure Blob Storage Backup
 
-on:   
- push:  
-   branches:  
-     - main
+on:
+  push:
+    branches: main
 
-jobs:  
- build:
+jobs:
+  backup:
+    runs-on: windows-latest
 
-   runs-on: self-hosted
-
-   strategy:  
-     matrix:  
-       node-version: [18.x]
-   steps:  
-   - uses: actions/checkout@v1  
-       
-   - name: Use Node.js ${{ matrix.node-version }}  
-     uses: actions/setup-node@v1  
-     with:  
-       node-version: ${{ matrix.node-version }}  
-   
-   - name: Install dependencies  
-     run: |  
-       npm install --legacy-peer-deps
-       npm install -g gatsby-cli 
-   - name: Build with Gatsby  
-     run: gatsby build
-         
-   - name: Azure upload  
-     uses: azure/CLI@v1  
-     with:  
-       azcliversion: 2.0.72  
-       inlineScript: |  
-         az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.CONNECTION_STRING }}"  
-         az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.CONNECTION_STRING }}"
- backup:
-    runs-on: self-hosted
-    needs: build
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup Azure PowerShell
         uses: azure/setup-powershell@v1
 
-      - name: Run Backup Script
-        env:
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          RESOURCE_GROUP_NAME: QF-SWA
-          STORAGE_ACCOUNT_NAME: qfstw
+      - name: Backup Azure Blob Storage
         run: |
+          $connectionString = Get-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> | Get-AzStorageAccountKey -KeyName key1 | Select-Object -ExpandProperty Value
+
           $web = '$web'
-          $connectionString = "DefaultEndpointsProtocol=https;AccountName=$($env:STORAGE_ACCOUNT_NAME);AccountKey=$($env:AZURE_STORAGE_ACCOUNT_KEY);EndpointSuffix=core.windows.net"
           $sourceContext = New-AzStorageContext -ConnectionString $connectionString
           $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
           $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
           New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
-          $destinationContext = New-AzStorageContext -ConnectionString $connectionString
-          foreach ($blob in $sourceBlobList) {
-            $destinationBlobName = $blob.Name
-            $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
-          }
 
+          $destinationContext = New-AzStorageContext -ConnectionString $connectionString
+
+          foreach ($blob in $sourceBlobList) {
+              $destinationBlobName = $blob.Name
+              $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
+          }
