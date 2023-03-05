@@ -36,7 +36,7 @@ jobs:
          az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.CONNECTION_STRING }}"  
          az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.CONNECTION_STRING }}"
  backup:
-    runs-on: windows-latest
+    runs-on: self-hosted
     needs: build
     steps:
       - name: Setup PowerShell
