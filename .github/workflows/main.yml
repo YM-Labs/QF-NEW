@@ -15,18 +15,18 @@ jobs:
         uses: azure/setup-powershell@v1
 
       - name: Backup Azure Blob Storage
-        run: |
-          $connectionString = Get-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> | Get-AzStorageAccountKey -KeyName key1 | Select-Object -ExpandProperty Value
-
-          $web = '$web'
-          $sourceContext = New-AzStorageContext -ConnectionString $connectionString
-          $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
-          $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
-          New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
-
-          $destinationContext = New-AzStorageContext -ConnectionString $connectionString
-
-          foreach ($blob in $sourceBlobList) {
-              $destinationBlobName = $blob.Name
-              $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
-          }
+        uses: azure/powershell@v1
+        with:
+          inlineScript: |
+            $web = '$web'
+            $connectionString = "DefaultEndpointsProtocol=https;AccountName=$($env:STORAGE_ACCOUNT_NAME);AccountKey=$($env:AZURE_STORAGE_ACCOUNT_KEY);EndpointSuffix=core.windows.net"
+            $sourceContext = New-AzStorageContext -ConnectionString $connectionString
+            $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
+            $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
+            New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
+            $destinationContext = New-AzStorageContext -ConnectionString $connectionString
+            foreach ($blob in $sourceBlobList) {
+                $destinationBlobName = $blob.Name
+                $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
+            }
+          azPSVersion: "latest"
