@@ -25,8 +25,7 @@ jobs:
               $storageAccount = Get-AzStorageAccount -ResourceGroupName "QF-SWA" -Name "qfstw"
               $storageContext = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageAccountKey
               $web = '$web'
-              $sourceContext = New-AzStorageContext -ConnectionString $connectionString
-              $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
+              $sourceBlobList = Get-AzStorageBlob -Container $web -Context $storageContext
 
               $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
               New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
