@@ -14,16 +14,21 @@ jobs:
         uses: azure/powershell@v1
         with:
           inlineScript: |
-            $web = '$web'
-            $storageAccount = Get-AzStorageAccount -ResourceGroupName QF-SWA -Name qfstw
-            $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
-            $sourceContext = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageAccountKey
-            $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
-            $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
-            New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
-            $destinationContext = New-AzStorageContext -ConnectionString $connectionString
-            foreach ($blob in $sourceBlobList) {
+             $resourceGroupName = "QF-SWA"
+             $storageAccountName = "qfstw"
+             Connect-AzAccount
+             Select-AzSubscription -SubscriptionId "c3dff2a8-ba98-4189-94a7-d3a42bfc42cd"
+             $connectionString = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | Select-Object -ExpandProperty PrimaryConnectionString
+
+             $web = '$web'
+             $sourceContext = New-AzStorageContext -ConnectionString $connectionString
+             $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
+
+             $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
+             New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
+             $destinationContext = New-AzStorageContext -ConnectionString $connectionString
+             foreach ($blob in $sourceBlobList) {
                 $destinationBlobName = $blob.Name
                 $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
-            }
-          azPSVersion: "latest"
+              }
+              azPSVersion: "latest"
