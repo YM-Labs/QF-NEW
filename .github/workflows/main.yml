@@ -24,7 +24,6 @@ jobs:
               Connect-AzAccount -ServicePrincipal -Credential $psCredential -TenantId $tenantId -SubscriptionId $subscriptionId
               $storageAccount = Get-AzStorageAccount -ResourceGroupName "QF-SWA" -Name "qfstw"
               $storageContext = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageAccountKey
-              azPSVersion: "latest"
               $web = '$web'
               $sourceContext = New-AzStorageContext -ConnectionString $connectionString
               $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
