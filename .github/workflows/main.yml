@@ -15,8 +15,9 @@ jobs:
         with:
           inlineScript: |
             $web = '$web'
-            $connectionString = Get-AzStorageAccount -ResourceGroupName QF-SWA -Name qfstw | Get-AzStorageAccountKey -KeyName key1 | Select-Object -ExpandProperty Value
-            $sourceContext = New-AzStorageContext -ConnectionString $connectionString
+            $storageAccount = Get-AzStorageAccount -ResourceGroupName QF-SWA -Name qfstw
+            $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
+            $sourceContext = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageAccountKey
             $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
             $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
             New-AzStorageContainer -Name $destinationContainerName -Context $sourceContext
