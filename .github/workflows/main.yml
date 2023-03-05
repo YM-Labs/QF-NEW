@@ -28,5 +28,5 @@ jobs:
              foreach ($blob in $sourceBlobList) {
                 $destinationBlobName = $blob.Name
                 $destinationBlob = Start-AzStorageBlobCopy -Context $destinationContext -SrcContainer $web -SrcBlob $blob.Name -DestContainer $destinationContainerName -DestBlob $destinationBlobName -Force
-                }
-              azPSVersion: "latest"
+             }
+           azPSVersion: "latest"
