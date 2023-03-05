@@ -1,15 +1,44 @@
-name: Azure Blob Storage Backup
+name: Deploy Gatsby to Azure Storage
 
-on:
-  push:
-    branches: main
+on:   
+ push:  
+   branches:  
+     - main
 
-jobs:
-  backup:
-    runs-on: windows-latest
+jobs:  
+ build:
 
+   runs-on: self-hosted
+
+   strategy:  
+     matrix:  
+       node-version: [18.x]
+   steps:  
+   - uses: actions/checkout@v1  
+       
+   - name: Use Node.js ${{ matrix.node-version }}  
+     uses: actions/setup-node@v1  
+     with:  
+       node-version: ${{ matrix.node-version }}  
+   
+   - name: Install dependencies  
+     run: |  
+       npm install --legacy-peer-deps
+       npm install -g gatsby-cli 
+   - name: Build with Gatsby  
+     run: gatsby build
+         
+   - name: Azure upload  
+     uses: azure/CLI@v1  
+     with:  
+       azcliversion: 2.0.72  
+       inlineScript: |  
+         az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.CONNECTION_STRING }}"  
+         az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.CONNECTION_STRING }}"
+ backup:
+    runs-on: self-hosted
+    needs: build
     steps:
-
       - name: Backup Azure Blob Storage
         uses: azure/powershell@v1
         with:
@@ -27,7 +56,6 @@ jobs:
               $storageContext = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageAccountKey
               $web = '$web'
               $sourceBlobList = Get-AzStorageBlob -Container $web -Context $storageContext
-
               $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
               New-AzStorageContainer -Name $destinationContainerName -Context $storageContext
               $destinationContext = New-AzStorageContext -ConnectionString $connectionString
