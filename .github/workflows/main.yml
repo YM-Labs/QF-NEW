@@ -15,7 +15,7 @@ jobs:
         with:
           inlineScript: |
             $web = '$web'
-            $connectionString = "DefaultEndpointsProtocol=https;AccountName=$($env:STORAGE_ACCOUNT_NAME);AccountKey=$($env:AZURE_STORAGE_ACCOUNT_KEY);EndpointSuffix=core.windows.net"
+            $connectionString = Get-AzStorageAccount -ResourceGroupName QF-SWA -Name qfstw | Get-AzStorageAccountKey -KeyName key1 | Select-Object -ExpandProperty Value
             $sourceContext = New-AzStorageContext -ConnectionString $connectionString
             $sourceBlobList = Get-AzStorageBlob -Container $web -Context $sourceContext
             $destinationContainerName = "backup-" + (Get-Date).ToString("yyyyMMddHHmmss")
