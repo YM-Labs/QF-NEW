@@ -168,7 +168,7 @@ const config = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID || '2h1qowfuxkq7',
-		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN || process.env.CONTENTFUL_ACCESS_TOKEN || '58c4afc16acba8b5b5a1f79a13f22cb0e140a4e3a5ab3355da49ff6bfd9a7978',
+		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN || process.env.CONTENTFUL_ACCESS_TOKEN || 'lH9dID5ULKX7864WwG0zlaGzvTSbKiw1ioglzGiP96A',
 		host: process.env.CONTENTFUL_HOST
       },
     },
